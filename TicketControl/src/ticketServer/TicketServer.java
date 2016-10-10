@@ -1,4 +1,4 @@
-package tickerServer;
+package ticketServer;
 
 public class TicketServer {
 
