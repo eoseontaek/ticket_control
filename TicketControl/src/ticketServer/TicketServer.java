@@ -1,19 +1,35 @@
 package ticketServer;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
+import java.nio.channels.AsynchronousChannelGroup;
+import java.nio.channels.AsynchronousServerSocketChannel;
+import java.nio.channels.AsynchronousSocketChannel;
+import java.util.List;
+import java.util.Vector;
 
-public class TicketServer extends Application{
+public class TicketServer {
+	private AsynchronousChannelGroup channelGroup;
+	private AsynchronousServerSocketChannel serverSocketChannel;
+	private List<Client> connections = new Vector<>();
 	
-	@Override
-	public void start(Stage stage) throws Exception {
-		// TODO Auto-generated method stub
+	class Client{
+		AsynchronousSocketChannel socketChannel;
 		
-		stage.show();
+		public Client(AsynchronousSocketChannel socketChannel) {
+			this.socketChannel = socketChannel;
+			
+			receive();
+		}
+		
+		void receive(){ }
+		void send(String data){ }
 	}
+
+	public void startServer(){ }
+	public void stopServer(){ }
 	
 	public static void main(String[] args) {
-		launch(args);
+		TicketServer ticketServer = new TicketServer();
+		
+		ticketServer.startServer();
 	}
-
 }
