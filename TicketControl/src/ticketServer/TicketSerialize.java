@@ -8,16 +8,24 @@ import java.io.ObjectOutputStream;
 
 public class TicketSerialize {
 	public static byte [] serialize(Object obj){
+		byte [] bytes = null;
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		ObjectOutputStream oos = null;
 
 		try {
 			oos = new ObjectOutputStream(out);
 			oos.writeObject(obj);
+			oos.flush();
+			bytes = out.toByteArray();
 		} catch (IOException e) {
+		}finally {
+			try {
+				oos.close();
+				out.close();
+			} catch (IOException e) {}
 		}
 
-		return out.toByteArray();
+		return bytes;
 	}
 	
 	public static Object deserialize(byte[] data) {
@@ -29,6 +37,10 @@ public class TicketSerialize {
 			obj = ois.readObject();
 		} catch (ClassNotFoundException e) {
 		} catch (IOException e) {
+		}finally {
+			try {
+				ois.close();
+			} catch (IOException e) {}
 		}
 		return obj;
 	}
