@@ -7,7 +7,6 @@ import java.nio.channels.AsynchronousChannelGroup;
 import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
-import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.Executors;
@@ -37,12 +36,11 @@ public class TicketServer {
 				public void completed(Integer result, ByteBuffer attachment) {
 
 					// 수신 데이터 처리 ///////////////////////////////////////////
-					attachment.flip();
-					Charset charset = Charset.forName("UTF-8");
-					String data = charset.decode(attachment).toString();
-					
+					byte [] bytes = attachment.array();
+					TicketPacket obj = (TicketPacket)TicketSerialize.deserialize(bytes);
+									
 					// 요청 클라이언트로 응답처리 /////////////////////////////////
-					Client.this.send(data);
+					Client.this.send(obj);
 					
 					ByteBuffer byteBuffer = ByteBuffer.allocate(BUFFER_SIZE);
 					socketChannel.read(byteBuffer, byteBuffer, this);
@@ -52,15 +50,18 @@ public class TicketServer {
 				public void failed(Throwable arg0, ByteBuffer arg1) {
 					try {
 						connections.remove(Client.this);
+						System.out.println("[연결개수 : " + connections.size() + "]");
 						socketChannel.close();
 					} catch (IOException e) {}
 				}
 			});
 		}
 		
-		void send(String data){ 
-			Charset charset = Charset.forName("UTF-8");
-			ByteBuffer byteBuffer = charset.encode(data);
+		void send(Object obj){ 
+			byte[] bytes = TicketSerialize.serialize(obj);
+			ByteBuffer buff = ByteBuffer.allocate(BUFFER_SIZE);
+			ByteBuffer byteBuffer = buff.wrap(bytes, 0, bytes.length);
+			
 			socketChannel.write(byteBuffer, null, new CompletionHandler<Integer, Void>() {
 
 				@Override
@@ -72,6 +73,7 @@ public class TicketServer {
 				public void failed(Throwable exc, Void attachment) {
 					try {
 						connections.remove(Client.this);
+						System.out.println("[연결개수 : " + connections.size() + "]");
 						socketChannel.close();
 					} catch (IOException e) {}
 				}
@@ -92,15 +94,22 @@ public class TicketServer {
 			}
 		}
 		
+		System.out.println("[서버시작]");
+		
 		serverSocketChannel.accept(null, new CompletionHandler<AsynchronousSocketChannel, Void>() {
 
 			@Override
 			public void completed(AsynchronousSocketChannel socketChannel, Void arg1) {
 				
-				Client client = new Client(socketChannel);
-				connections.add(client);
-				
-				serverSocketChannel.accept(null, this);
+				try {
+					System.out.println("[연결수락 : " + socketChannel.getRemoteAddress() + " : " + Thread.currentThread().getName() + "]" );
+					Client client = new Client(socketChannel);
+					connections.add(client);
+					System.out.println("[연결개수 : " + connections.size() + "]");
+					
+					serverSocketChannel.accept(null, this);
+				} catch (IOException e) {
+				}
 			}
 
 			@Override
@@ -116,6 +125,7 @@ public class TicketServer {
 	public void stopServer(){
 		if (!connections.isEmpty()){
 			connections.clear();
+			System.out.println("[연결개수 : " + connections.size() + "]");
 		}
 		
 		if((channelGroup != null) && (!channelGroup.isShutdown())){
