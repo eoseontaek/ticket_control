@@ -7,6 +7,7 @@ import java.nio.channels.AsynchronousChannelGroup;
 import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.Executors;
@@ -28,6 +29,31 @@ public class TicketServer {
 			receive();
 		}
 		
+		void response(TicketPacket packet){
+			if(packet instanceof PointPacket){
+				PointPacket p = (PointPacket)packet;
+				
+				p.setPoint(p.getPoint());
+			}
+			else if (packet instanceof BarcodePacket){
+				BarcodePacket p = (BarcodePacket)packet;
+				
+				String barcodePath = "D:\\JAVA\\Temp\\IMGL7609.jpg";
+				p.setBarcodePath(barcodePath);					
+				
+			}
+			else if (packet instanceof MenuPacket){
+				MenuPacket p = (MenuPacket)packet;
+				
+				ArrayList<String> list = new ArrayList<>();
+				for(int i = 0; i< 10 ;i++) list.add(i, "String+" + i);
+				p.setMenuList(list);
+			}
+			else {
+				System.out.println("[Warning] Invalid Packet.");
+			}
+		}
+		
 		void receive(){ 
 			ByteBuffer byteBuffer = ByteBuffer.allocate(BUFFER_SIZE);
 			socketChannel.read(byteBuffer, byteBuffer, new CompletionHandler<Integer, ByteBuffer>() {
@@ -37,10 +63,11 @@ public class TicketServer {
 
 					// 수신 데이터 처리 ///////////////////////////////////////////
 					byte [] bytes = attachment.array();
-					TicketPacket obj = (TicketPacket)TicketSerialize.deserialize(bytes);
+					TicketPacket packet = (TicketPacket)TicketSerialize.deserialize(bytes);
+					response(packet);
 									
 					// 요청 클라이언트로 응답처리 /////////////////////////////////
-					Client.this.send(obj);
+					Client.this.send(packet);
 					
 					ByteBuffer byteBuffer = ByteBuffer.allocate(BUFFER_SIZE);
 					socketChannel.read(byteBuffer, byteBuffer, this);

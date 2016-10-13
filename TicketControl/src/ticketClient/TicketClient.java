@@ -9,6 +9,9 @@ import java.nio.channels.CompletionHandler;
 import java.util.Scanner;
 import java.util.concurrent.Executors;
 
+import ticketServer.BarcodePacket;
+import ticketServer.MenuPacket;
+import ticketServer.PointPacket;
 import ticketServer.TicketPacket;
 import ticketServer.TicketSerialize;
 
@@ -68,9 +71,15 @@ public class TicketClient {
 			@Override
 			public void completed(Integer result, ByteBuffer attachment) {
 				byte[] bytes = attachment.array();
-				TicketPacket obj = (TicketPacket) TicketSerialize.deserialize(bytes);
-				System.out.println("[받기완료] " + "Command : " + obj.getCommand() + ", Point : " + obj.getPoint());
+				TicketPacket packet = (TicketPacket) TicketSerialize.deserialize(bytes);
 
+				if (packet != null) {
+					packet.result();
+				}
+				else {
+					System.out.println("Warning!!  packet이 null입니다.");
+				}
+				
 				ByteBuffer byteBuffer = ByteBuffer.allocate(BUFFER_SIZE);
 				socketChannel.read(byteBuffer, byteBuffer, this);
 			}
@@ -111,13 +120,31 @@ public class TicketClient {
 		client.startClient();
 		
 		while(true){
-			System.out.print("intput(exit : 0) >> ");
+			boolean bexit = false;
+			System.out.println("1. point");
+			System.out.println("2. barcode");
+			System.out.println("3. menu");
+			System.out.println("0. exit");
+			System.out.print(">> ");
 			int data = scanner.nextInt();
 			
-			if(data == 0) break;
+			switch(data){
+			case 0:
+				bexit = true;
+				break;
+			case 1:
+				client.send(new PointPacket(10000));
+				break;
+			case 2:
+				client.send(new BarcodePacket(null));
+				break;
+			case 3:
+				client.send(new MenuPacket(null));
+				break;
+			}
 			
-			client.send(new TicketPacket("Command -" + data, data));
-			
+			if(bexit == true) break;
+			System.out.println();
 		}
 		
 		client.stopClient();
