@@ -174,7 +174,7 @@ public class TicketServer extends Application{
 		startServer();
 		
 		//login stage ·Îµù
-		Parent logInRoot = FXMLLoader.load(getClass().getResource("logIn\\login.fxml"));
+		Parent logInRoot = FXMLLoader.load(getClass().getResource("logIn\\Login.fxml"));
 		
 		
 		stage.setTitle("Ticket Control Administrator");
