@@ -9,13 +9,20 @@ import java.nio.channels.CompletionHandler;
 import java.util.Scanner;
 import java.util.concurrent.Executors;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import ticketServer.BarcodePacket;
 import ticketServer.MenuPacket;
 import ticketServer.PointPacket;
 import ticketServer.TicketPacket;
 import ticketServer.TicketSerialize;
 
-public class TicketClient {
+public class TicketClient extends Application{
 	private AsynchronousChannelGroup channelGroup;
 	private AsynchronousSocketChannel socketChannel;
 	
@@ -37,6 +44,7 @@ public class TicketClient {
 					System.out.println("[연결완료]");
 
 					receive();
+					
 				}
 
 				@Override
@@ -115,40 +123,53 @@ public class TicketClient {
 	}
 	
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
+		
+		launch(args);
+		
+//		Scanner scanner = new Scanner(System.in);
+//
+//		TicketClient client = new TicketClient();
+//		client.startClient();
+//		
+//		while(true){
+//			boolean bexit = false;
+//			System.out.println("1. point");
+//			System.out.println("2. barcode");
+//			System.out.println("3. menu");
+//			System.out.println("0. exit");
+//			System.out.print(">> ");
+//			int data = scanner.nextInt();
+//			
+//			switch(data){
+//			case 0:
+//				bexit = true;
+//				break;
+//			case 1:
+//				client.send(new PointPacket(10000));
+//				break;
+//			case 2:
+//				client.send(new BarcodePacket(null));
+//				break;
+//			case 3:
+//				client.send(new MenuPacket(null));
+//				break;
+//			}
+//			
+//			if(bexit == true) break;
+//			System.out.println();
+//		}
+//		
+//		client.stopClient();
+	}
 
-		TicketClient client = new TicketClient();
-		client.startClient();
+	@Override
+	public void start(Stage primaryStage) throws Exception {
 		
-		while(true){
-			boolean bexit = false;
-			System.out.println("1. point");
-			System.out.println("2. barcode");
-			System.out.println("3. menu");
-			System.out.println("0. exit");
-			System.out.print(">> ");
-			int data = scanner.nextInt();
-			
-			switch(data){
-			case 0:
-				bexit = true;
-				break;
-			case 1:
-				client.send(new PointPacket(10000));
-				break;
-			case 2:
-				client.send(new BarcodePacket(null));
-				break;
-			case 3:
-				client.send(new MenuPacket(null));
-				break;
-			}
-			
-			if(bexit == true) break;
-			System.out.println();
-		}
-		
-		client.stopClient();
-		
+		startClient();
+		primaryStage.setTitle("Ticket Client");
+		Parent root = FXMLLoader.load(getClass().getResource("Main\\Main.fxml"));
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
 	}
 }
