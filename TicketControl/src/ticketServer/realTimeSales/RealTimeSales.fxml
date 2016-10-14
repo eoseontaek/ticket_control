@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketServer.realTimeSales.RealTimeSalesController">
+   <center>
+      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" text="2016년 10월 3일 12시 31분">
+               <columns>
+                <TableColumn prefWidth="75.0" text="구매자 정보" />
+                  <TableColumn prefWidth="75.0" text="구매 시간" />
+                  <TableColumn prefWidth="75.0" text="구매 금액" />
+               </columns>
+            </TableColumn>
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+   <left>
+      <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="실시간 매출">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="매출 통계">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="정산 내역">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="메뉴판">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="설정" />
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <HBox prefHeight="51.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnHome" alignment="CENTER" mnemonicParsing="false" onAction="#handleBtnHomeAction" prefHeight="60.0" prefWidth="100.0" text="식당 관리">
+               <effect>
+                  <ColorAdjust contrast="1.0" />
+               </effect>
+            </Button>
+            <TextField alignment="CENTER" editable="false" prefHeight="51.0" prefWidth="500.0" text="실시간 매출">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </TextField>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox prefHeight="81.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane prefHeight="81.0" prefWidth="617.0">
+               <top>
+                  <Pagination prefHeight="53.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets left="70.0" />
+                     </BorderPane.margin>
+                  </Pagination>
+               </top>
+            </BorderPane>
+         </children></HBox>
+   </bottom>
+</BorderPane>
