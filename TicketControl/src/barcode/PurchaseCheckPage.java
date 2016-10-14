@@ -24,13 +24,13 @@ public class PurchaseCheckPage extends Application implements Initializable{
 	
 	
 	public String barcodeCheck(){
-		//데이터베이스에서 회원아이디 뽑아오기 -> 바코드 있나 확인 -> 바코드번호가져오기
-		String barcodeNum = "101610111001"+".jpgz"; //바코드 넘버 불러와서 변수에 저장
 		
+		//////////////////////////////////////////////////////
+		// 데이터베이스에서 바코드 이름 가져오기 
+		///////////////////////////////////////////////////////
+		
+		String barcodeNum = "101610111001"+".jpg"; //
 		return barcodeNum;
-		
-//		if(barcodeNum!=null){
-
 	}
 	
 	
@@ -55,11 +55,13 @@ public class PurchaseCheckPage extends Application implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		File file = new File("d:/barcode/"+barcodeCheck());
+
+		//이미지 로딩		
+		File file = new File("./"+barcodeCheck());
 		Image image = new Image(file.toURI().toString());
+		//이미지뷰 영역에 이미지넣기
 		BarcodeImage.setImage(image);
-		
+
 		
 		btnGoMain.setOnAction(new EventHandler<ActionEvent>() {
 			

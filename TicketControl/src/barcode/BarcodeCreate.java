@@ -55,7 +55,7 @@ public class BarcodeCreate {
 	  final int dpi = 203;
 	  String fileFormat = "jpg";
 	  
-	  String dir = "d:/barcode/";
+	  String dir = "d:/";
 //	  String fileName = barcodeDate+fileFormat;
 	  String outputFile = dir + barcodeDate+"."+fileFormat;
 	  
