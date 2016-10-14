@@ -19,30 +19,29 @@ import javafx.scene.layout.BorderPane;
 
 public class PurchaseCheckPage extends Application implements Initializable{
 	
-	@FXML private Button btnBuyCheck;
-	@FXML private Button btnBuy;
-	@FXML private Button btnMenu;
-	@FXML private Button btnInfo;
+	@FXML private Button btnGoMain;
 	@FXML private ImageView BarcodeImage;
 	
 	
-	public void barcodeCheck(){
+	public String barcodeCheck(){
 		//데이터베이스에서 회원아이디 뽑아오기 -> 바코드 있나 확인 -> 바코드번호가져오기
-		String barcodeNum = "101610111001"+".jpg"; //바코드 넘버 불러와서 변수에 저장
+		String barcodeNum = "101610111001"+".jpgz"; //바코드 넘버 불러와서 변수에 저장
+		
+		return barcodeNum;
 		
 //		if(barcodeNum!=null){
-			File file = new File("d:/barcode/"+barcodeNum);
-			Image image = new Image(file.toURI().toString());
-			BarcodeImage.setImage(image);
+
 	}
 	
 	
 	@Override
 	public void start(Stage primaryStage) {
+		
 		try {
+			
 			Parent root = FXMLLoader.load(getClass().getResource("purchaseCheck.fxml"));;
 			Scene scene = new Scene(root,300,500);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());		
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
@@ -56,39 +55,32 @@ public class PurchaseCheckPage extends Application implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		btnBuyCheck.setOnAction(new EventHandler<ActionEvent>() {
+		
+		File file = new File("d:/barcode/"+barcodeCheck());
+		Image image = new Image(file.toURI().toString());
+		BarcodeImage.setImage(image);
+		
+		
+		btnGoMain.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				handlebtnBuyCheckAction(event);
+				handlebtnGoMainAction(event);
 			}
 		});
 		
-		btnBuy.setOnAction(event->handlebtnBuyAction(event));
-		btnMenu.setOnAction(event->handlebtnMenuAction(event));
-		btnInfo.setOnAction(event->handlebtnInfoAction(event));	
 	}
 	
 	
-	public void handlebtnBuyCheckAction(ActionEvent event){
-		System.out.println("구입확인!!!!!!!");
-		barcodeCheck();
+	public void handlebtnGoMainAction(ActionEvent event){
+		System.out.println("뒤로가기"); 
+		///////////////////////////////////////////////////////////
+		
+		
+		////////////////////메인으로 돌아가기 구현/////////////////////////
+		
+		
+		///////////////////////////////////////////////////////////
 	}	
 		
-	
-	public void handlebtnBuyAction(ActionEvent event){
-		System.out.println("구입구입구입");
-		BarcodeImage.setImage(null);
-	}
-	
-	public void handlebtnMenuAction(ActionEvent event){
-		System.out.println("메뉴확인!!!!!!!");
-		BarcodeImage.setImage(null);
-	}
-	
-	public void handlebtnInfoAction(ActionEvent event){
-		System.out.println("마이페이지!!!!!!");
-		BarcodeImage.setImage(null);
-	}
-
 }
