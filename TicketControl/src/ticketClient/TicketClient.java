@@ -20,6 +20,7 @@ public class TicketClient {
 	private AsynchronousSocketChannel socketChannel;
 	
 	private static final String SERVER_IP = "localhost";
+	//tst
 	private static final int SERVER_PORT = 6001;
 	private static final int BUFFER_SIZE = 1024;
 	

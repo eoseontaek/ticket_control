@@ -12,7 +12,13 @@ import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.Executors;
 
-public class TicketServer {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class TicketServer extends Application{
 	private AsynchronousChannelGroup channelGroup;
 	private AsynchronousServerSocketChannel serverSocketChannel;
 	private List<Client> connections = new Vector<>();
@@ -162,9 +168,23 @@ public class TicketServer {
 		}
 	}
 	
-	public static void main(String[] args) {
-		TicketServer ticketServer = new TicketServer();
+	@Override
+	public void start(Stage stage) throws Exception {
+		// TicketServer 시작
+		startServer();
 		
-		ticketServer.startServer();
+		//login stage 로딩
+		Parent logInRoot = FXMLLoader.load(getClass().getResource("logIn\\login.fxml"));
+		
+		
+		stage.setTitle("Ticket Control Administrator");
+		stage.setOnCloseRequest(event->stopServer());
+		stage.setScene(new Scene(logInRoot));
+		stage.show();
 	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+
 }
