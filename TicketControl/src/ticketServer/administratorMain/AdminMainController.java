@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 public class AdminMainController implements Initializable {
 	@FXML private Button btnRealTimeSales;
 	@FXML private Button btnSalesStatistics;
+	@FXML private Button btnBalanceAccounts;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -23,6 +24,7 @@ public class AdminMainController implements Initializable {
 		
 		btnRealTimeSales.setOnAction((event)->handleBtnRealTimeSalesAction(event));
 		btnSalesStatistics.setOnAction(event->handlebtnSalesStatisticsAction(event));
+		btnBalanceAccounts.setOnAction(event->handleBtnBalanceAccountsAction(event));
 	}
 	
 	// 실시간 매출 stage 호출
@@ -49,7 +51,17 @@ public class AdminMainController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
+	public void handleBtnBalanceAccountsAction(ActionEvent event){
+		try {
+			Parent salesStatisticsRoot = FXMLLoader.load(getClass().getResource("..\\balanceAccounts\\BalanceAccounts.fxml"));
+			Scene scene = new Scene(salesStatisticsRoot);
+			Stage primaryStage = (Stage) btnSalesStatistics.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
