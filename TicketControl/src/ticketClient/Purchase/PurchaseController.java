@@ -2,7 +2,6 @@ package ticketClient.Purchase;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,12 +46,18 @@ public class PurchaseController implements Initializable{
 	public void handleBtnA(ActionEvent event){
 		System.out.println("A메뉴구매");
 		message.setText("         A 메뉴를 구입하셨습니다");
+
+		BarcodeCreator newbc = new BarcodeCreator(99);
+		
 		
 	}
 	
 	public void handleBtnB(ActionEvent event){
 		System.out.println("B메뉴구매"); 
 		message.setText("         B 메뉴를 구입하셨습니다");
+		
+		BarcodeCreator newbc = new BarcodeCreator(77);
+		
 		
 	}
 	
