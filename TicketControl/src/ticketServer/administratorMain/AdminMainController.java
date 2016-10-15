@@ -17,6 +17,7 @@ public class AdminMainController implements Initializable {
 	@FXML private Button btnRealTimeSales;
 	@FXML private Button btnSalesStatistics;
 	@FXML private Button btnBalanceAccounts;
+	@FXML private Button btnMealMenu;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -25,6 +26,7 @@ public class AdminMainController implements Initializable {
 		btnRealTimeSales.setOnAction((event)->handleBtnRealTimeSalesAction(event));
 		btnSalesStatistics.setOnAction(event->handlebtnSalesStatisticsAction(event));
 		btnBalanceAccounts.setOnAction(event->handleBtnBalanceAccountsAction(event));
+		btnMealMenu.setOnAction(event->handleBtnMealMenuAction(event));
 	}
 	
 	// 실시간 매출 stage 호출
@@ -55,9 +57,21 @@ public class AdminMainController implements Initializable {
 
 	public void handleBtnBalanceAccountsAction(ActionEvent event){
 		try {
-			Parent salesStatisticsRoot = FXMLLoader.load(getClass().getResource("..\\balanceAccounts\\BalanceAccounts.fxml"));
-			Scene scene = new Scene(salesStatisticsRoot);
-			Stage primaryStage = (Stage) btnSalesStatistics.getScene().getWindow();
+			Parent balanceAccountsRoot = FXMLLoader.load(getClass().getResource("..\\balanceAccounts\\BalanceAccounts.fxml"));
+			Scene scene = new Scene(balanceAccountsRoot);
+			Stage primaryStage = (Stage) btnBalanceAccounts.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void handleBtnMealMenuAction(ActionEvent event){
+		try {
+			Parent mealMenuRoot = FXMLLoader.load(getClass().getResource("..\\mealMenu\\MealMenu.fxml"));
+			Scene scene = new Scene(mealMenuRoot);
+			Stage primaryStage = (Stage) btnMealMenu.getScene().getWindow();
 			primaryStage.setScene(scene);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

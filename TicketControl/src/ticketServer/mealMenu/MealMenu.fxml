@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="실시간 매출">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="매출 통계">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="정산 내역">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="메뉴판">
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin></Button>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="설정">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Button>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <HBox prefHeight="51.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField alignment="CENTER" editable="false" prefHeight="50.0" prefWidth="138.0" text="식당 관리">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </TextField>
+            <TextField alignment="CENTER" editable="false" prefHeight="51.0" prefWidth="538.0" text="메뉴판">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </TextField>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="81.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" tabMinWidth="210.0" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="금일의 메뉴">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <left>
+                        <VBox prefHeight="210.0" prefWidth="0.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" text="일반식A">
+                                 <VBox.margin>
+                                    <Insets right="5.0" />
+                                 </VBox.margin></TextField>
+                              <ImageView fitHeight="115.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../UI/다운로드%20(1).jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets right="5.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="&#9;&#9;밥&#10;&#9;&#9;국&#10;&#9;&#9;반찬&#10;&#9;&#9;후식">
+                                 <VBox.margin>
+                                    <Insets right="5.0" />
+                                 </VBox.margin>
+                              </TextArea>
+                           </children>
+                        </VBox>
+                     </left>
+                     <center>
+                        <VBox prefHeight="216.0" prefWidth="138.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" text="일반식B">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin></TextField>
+                              <ImageView fitHeight="115.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../UI/naver_com_20121018_142353.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="&#9;&#9;밥&#10;&#9;&#9;돈까스&#10;&#9;&#9;샐러드&#10;&#9;&#9;국&#10;&#9;&#9;스프">
+                                 <VBox.margin>
+                                    <Insets right="5.0" />
+                                 </VBox.margin>
+                              </TextArea>
+                           </children>
+                        </VBox>
+                     </center>
+                     <right>
+                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" text="특식">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="4.0" />
+                                 </VBox.margin></TextField>
+                              <ImageView fitHeight="115.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../UI/ddeok.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <TextArea editable="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="200.0" text="떡볶이&#10;" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </VBox.margin>
+                              </TextArea>
+                           </children>
+                        </VBox>
+                     </right>
+                  </BorderPane>
+               </content>
+            </Tab>
+          <Tab text="주간 메뉴">
+               <content>
+                  <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="71.0" minWidth="10.0" prefWidth="54.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="10.0" prefWidth="98.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="68.0" minHeight="0.0" prefHeight="19.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="103.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextArea prefHeight="114.0" prefWidth="92.0" text="개천절" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextArea>
+                        <TextField alignment="CENTER" text="10/3(월)" GridPane.columnIndex="1" />
+                        <TextArea prefHeight="200.0" prefWidth="200.0" text="개천절" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea prefHeight="200.0" prefWidth="200.0" text="일자&#10;" />
+                        <TextField alignment="CENTER" prefHeight="133.0" prefWidth="38.0" text="A" GridPane.rowIndex="1" />
+                        <TextField alignment="CENTER" prefHeight="177.0" prefWidth="38.0" text="B" GridPane.rowIndex="2" />
+                        <TextField alignment="CENTER" text="10/4(화)" GridPane.columnIndex="2" />
+                        <TextField alignment="CENTER" text="10/5(수)" GridPane.columnIndex="3" />
+                        <TextField alignment="CENTER" text="10/6(목)" GridPane.columnIndex="4" />
+                        <TextField alignment="CENTER" text="10/7(금)" GridPane.columnIndex="5" />
+                        <TextArea prefHeight="200.0" prefWidth="200.0" text="버섯만두전골&#10;보리밥&#10;계란찜&#10;샐러드&#10;배추김치&#10;아이스티" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea prefHeight="200.0" prefWidth="200.0" text="사천식해물덮밥&#10;다시마무국&#10;탕수육&#10;유채나물&#10;짜사이채무침&#10;배추김치&#10;아이스티" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea prefHeight="200.0" prefWidth="200.0" text="순두부된장찌개&#10;혼합잡곡밥&#10;소시지전&#10;알감자조림&#10;부추생채&#10;배추김치&#10;식혜/숭늉" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea prefHeight="200.0" prefWidth="200.0" text="사과카레라이스&#10;유부맑은국&#10;오징어가스&#10;건파래볶음&#10;부추생채&#10;배추김치&#10;식혜/눙늉" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea prefHeight="200.0" prefWidth="200.0" text="비빔밥&#10;호박고추장찌개&#10;동그랑땡&#10;가지나물&#10;깻잎순겉절이&#10;배추김치&#10;아이스티&#10;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea prefHeight="200.0" prefWidth="200.0" text="스파게티&#10;크림스프&#10;마늘바게트&#10;그린샐러드&#10;삼색피클&#10;배추김치&#10;숭늉" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea prefHeight="200.0" prefWidth="200.0" text="부대찌개&#10;강낭콩밥&#10;옥수수전&#10;명엽채볶음&#10;숙주나물&#10;깍두기&#10;메실차" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea prefHeight="200.0" prefWidth="200.0" text="불고기볶음밥&#10;팽이버섯장국&#10;비빔채소만두&#10;단호박샐러드&#10;와사비무초절임&#10;볶음김치&#10;메실차" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </GridPane>
+               </content></Tab>
+        </tabs>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </TabPane>
+   </center>
+</BorderPane>
