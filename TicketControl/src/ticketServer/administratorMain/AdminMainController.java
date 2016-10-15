@@ -18,6 +18,7 @@ public class AdminMainController implements Initializable {
 	@FXML private Button btnSalesStatistics;
 	@FXML private Button btnBalanceAccounts;
 	@FXML private Button btnMealMenu;
+	@FXML private Button btnConfiguration;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -27,6 +28,7 @@ public class AdminMainController implements Initializable {
 		btnSalesStatistics.setOnAction(event->handlebtnSalesStatisticsAction(event));
 		btnBalanceAccounts.setOnAction(event->handleBtnBalanceAccountsAction(event));
 		btnMealMenu.setOnAction(event->handleBtnMealMenuAction(event));
+		btnConfiguration.setOnAction(event->handleBtnConfigurationAction(event));
 	}
 	
 	// 실시간 매출 stage 호출
@@ -72,6 +74,18 @@ public class AdminMainController implements Initializable {
 			Parent mealMenuRoot = FXMLLoader.load(getClass().getResource("..\\mealMenu\\MealMenu.fxml"));
 			Scene scene = new Scene(mealMenuRoot);
 			Stage primaryStage = (Stage) btnMealMenu.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void handleBtnConfigurationAction(ActionEvent event){
+		try {
+			Parent configurationRoot = FXMLLoader.load(getClass().getResource("..\\configuration\\Configuration.fxml"));
+			Scene scene = new Scene(configurationRoot);
+			Stage primaryStage = (Stage) btnConfiguration.getScene().getWindow();
 			primaryStage.setScene(scene);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
