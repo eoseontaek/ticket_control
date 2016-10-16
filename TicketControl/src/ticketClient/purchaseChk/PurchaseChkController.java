@@ -31,6 +31,7 @@ public class PurchaseChkController implements Initializable{
 		return barcodeNum;
 	}
 	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		prevBtn.setOnAction(event->handleBtnACtion(event));
@@ -41,8 +42,9 @@ public class PurchaseChkController implements Initializable{
 				Image image = new Image(file.toURI().toString());
 				//이미지뷰 영역에  바코드
 				BarcodeImage.setImage(image);
-	}
+
 	
+	}
 	public void handleBtnACtion(ActionEvent event) {
 		try {
 			Parent prev = FXMLLoader.load(getClass().getResource("..\\Main\\Main.fxml"));
