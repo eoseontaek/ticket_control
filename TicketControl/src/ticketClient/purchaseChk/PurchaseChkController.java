@@ -1,7 +1,9 @@
-package ticketClient.Purchase;
+package ticketClient.purchaseChk;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,26 +11,38 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class PurchaseController implements Initializable{
+public class PurchaseChkController implements Initializable{
 
 	@FXML private Button prevBtn;
+	@FXML private ImageView BarcodeImage;
 	
-	@FXML private Button btnA;
-	@FXML private Button btnB;
-	@FXML private Label message;
+	
+	public String barcodeCheck(){
+		
+		//////////////////////////////////////////////////////
+		// 데이터베이스에서 바코드 이름 가져오기 
+		///////////////////////////////////////////////////////
+		
+		String barcodeNum = "101610111001"+".jpg"; //
+		return barcodeNum;
+	}
 	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		prevBtn.setOnAction(event->handleBtnACtion(event));
-		
-		btnA.setOnAction(event->handleBtnA(event));
-		btnB.setOnAction(event->handleBtnB(event));
-		
+	
+		//이미지 로딩		
+				File file = new File("d:/barcode/"+barcodeCheck()); 
+				/////////////////////////////바코드 파일 경로
+				Image image = new Image(file.toURI().toString());
+				//이미지뷰 영역에  바코드
+				BarcodeImage.setImage(image);
+
 	
 	}
 	public void handleBtnACtion(ActionEvent event) {
@@ -42,25 +56,5 @@ public class PurchaseController implements Initializable{
 		}
 
 	}
-	
-	public void handleBtnA(ActionEvent event){
-		System.out.println("A메뉴구매");
-		message.setText("         A 메뉴를 구입하셨습니다");
 
-		BarcodeCreator newbc = new BarcodeCreator(99);
-		
-		
-	}
-	
-	public void handleBtnB(ActionEvent event){
-		System.out.println("B메뉴구매"); 
-		message.setText("         B 메뉴를 구입하셨습니다");
-		
-		BarcodeCreator newbc = new BarcodeCreator(77);
-		
-		
-	}
-	
-		
 }
-

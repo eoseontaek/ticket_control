@@ -9,11 +9,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketClient.Purchase.PurchaseController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketClient.purchase.PurchaseController">
    <top>
       <HBox prefHeight="50.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="prevBtn" mnemonicParsing="false" onAction="#handleBtnACtion" prefHeight="83.0" prefWidth="65.0" text="&lt;">
+            <Button fx:id="prevBtn" mnemonicParsing="false" onAction="#handleprevBtnAction" prefHeight="83.0" prefWidth="65.0" text="&lt;">
                <font>
                   <Font size="24.0" />
                </font>
@@ -59,11 +59,15 @@
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
             </Line>
-            <Button fx:id="btnA" mnemonicParsing="false" prefHeight="23.0" prefWidth="148.0" text="A 메뉴 구입" GridPane.rowIndex="2" />
-            <Button fx:id="btnB" mnemonicParsing="false" prefHeight="23.0" prefWidth="150.0" text="B 메뉴 구입" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label fx:id="message" prefHeight="29.0" prefWidth="298.0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-            <ImageView fx:id="imageB" fitHeight="162.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
-            <ImageView fx:id="imageB" fitHeight="164.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="menuChk" mnemonicParsing="false" onAction="#handlemenuChkAction" prefHeight="43.0" prefWidth="290.0" text="메뉴 조회" GridPane.columnSpan="2" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
    </center>
