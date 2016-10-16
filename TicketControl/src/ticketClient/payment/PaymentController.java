@@ -11,7 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import ticketClient.purchaseChk.PurchaseChkController;
 
 public class PaymentController implements Initializable{
 
@@ -42,5 +41,4 @@ public class PaymentController implements Initializable{
 		BarcodeCreator newbc = new BarcodeCreator(77);
 		//		BarcodeCreator newbc = new BarcodeCreator(99);
 	}
-	
 }
