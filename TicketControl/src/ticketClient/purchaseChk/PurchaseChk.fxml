@@ -10,11 +10,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketClient.MenuInfo.MenuInfoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+prefHeight="450.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="ticketClient.purchaseChk.PurchaseChkController">
    <top>
       <HBox prefHeight="50.0" prefWidth="290.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="prevBtn" mnemonicParsing="false" onAction="#handleBtnACtion" prefHeight="83.0" prefWidth="65.0" text="&lt;">
+            <Button fx:id="prevBtn" mnemonicParsing="false" prefHeight="83.0" prefWidth="65.0" text="&lt;">
                <font>
                   <Font size="24.0" />
                </font>
@@ -22,7 +24,7 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </Button>
-            <TextField alignment="CENTER" editable="false" prefHeight="75.0" prefWidth="255.0" text="메뉴 정보">
+            <TextField alignment="CENTER" editable="false" prefHeight="75.0" prefWidth="255.0" text="구매 확인">
                <font>
                   <Font size="24.0" />
                </font>
@@ -42,9 +44,7 @@
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="57.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="188.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="55.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints />
         </columnConstraints>
         <rowConstraints>
@@ -52,22 +52,21 @@
           <RowConstraints maxHeight="119.0" minHeight="0.0" prefHeight="107.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="144.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="114.0" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="114.0" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Line endX="190.0" startX="-100.0" GridPane.columnSpan="2" GridPane.rowIndex="4">
+            <Line endX="190.0" startX="-100.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
             </Line>
-            <TextArea editable="false" prefHeight="98.0" prefWidth="291.0" text="메뉴 내용1" GridPane.columnSpan="3" GridPane.rowIndex="1">
+            <TextArea editable="false" prefHeight="69.0" prefWidth="291.0" text="메뉴 내용" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" />
+                  <Insets left="5.0" right="5.0" />
                </GridPane.margin>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor></TextArea>
-            <TextField alignment="CENTER" editable="false" prefHeight="42.0" prefWidth="106.0" text="2016.10.3(월)" GridPane.columnIndex="1">
+            <TextField alignment="CENTER" editable="false" prefHeight="42.0" prefWidth="290.0" text="2016.10.3(월)">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
@@ -75,24 +74,11 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
-            <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="메뉴 내용2" GridPane.columnSpan="3" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </TextArea>
-            <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="65.0" text="&lt;">
-               <GridPane.margin>
-                  <Insets left="5.0" />
-               </GridPane.margin>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="65.0" text="&gt;" GridPane.columnIndex="2">
-               <GridPane.margin>
-                  <Insets right="5.0" />
-               </GridPane.margin>
-            </Button>
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+               <children>
+                  <ImageView fx:id="BarcodeImage" fitHeight="104.0" fitWidth="215.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+          	 </Pane>
          </children>
       </GridPane>
    </center>

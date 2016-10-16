@@ -1,4 +1,4 @@
-package ticketClient.Main;
+package ticketClient.main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,7 +38,7 @@ public class MainController implements Initializable{
 	
 	public void handleBtn2Action(ActionEvent event) {
 		try {
-			Parent chk = FXMLLoader.load(getClass().getResource("..\\Chk\\TicketChk.fxml"));
+			Parent chk = FXMLLoader.load(getClass().getResource("..\\purchaseChk\\PurchaseChk.fxml"));
 			Scene scene = new Scene(chk);
 			Stage primaryStage = (Stage) btn2.getScene().getWindow();
 			primaryStage.setScene(scene);
