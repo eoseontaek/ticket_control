@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+prefHeight="450.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="ticketClient.menuresult.MenuResultController">
+   <top>
+      <HBox prefHeight="50.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" fx:id="prevBtn" onAction="#handleBtnACtion" prefHeight="83.0" prefWidth="65.0" text="&lt;">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Button>
+            <TextField alignment="CENTER" editable="false" prefHeight="75.0" prefWidth="255.0" text="조회 결과">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <padding>
+                  <Insets right="5.0" top="5.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </TextField>
+         </children>
+         <BorderPane.margin>
+            <Insets left="5.0" right="5.0" top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox prefHeight="52.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <GridPane prefHeight="307.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="207.0" minHeight="10.0" prefHeight="207.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="14.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField alignment="CENTER" editable="false" prefHeight="42.0" prefWidth="290.0" text="2016.10.3(월)">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </TextField>
+            <Accordion GridPane.rowIndex="1">
+              <panes>
+                <TitledPane animated="false" text="특식">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="메뉴 내용1">
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor></TextArea>
+                              <Button mnemonicParsing="false" fx:id="btnA" onAction="#handleBtnA" prefHeight="23.0" prefWidth="311.0" text="구매">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin></Button>
+                           </children>
+                        </VBox>
+                     </content>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TitledPane>
+                <TitledPane animated="false" text="일반식">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="메뉴 내용2">
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor></TextArea>
+                              <Button mnemonicParsing="false" fx:id="btnB" onAction="#handleBtnB" prefHeight="23.0" prefWidth="318.0" text="구매">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin></Button>
+                           </children>
+                        </VBox>
+                     </content>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TitledPane>
+              </panes>
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+            </Accordion>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
