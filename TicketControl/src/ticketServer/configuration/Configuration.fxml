@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -7,26 +8,26 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketServer.configuration.ConfigurationController">
    <left>
       <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="실시간 매출">
+            <Button fx:id="btnRealTimeSales" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleBtnRealTimeSalesAction" prefHeight="60.0" prefWidth="100.0" text="실시간 매출">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin></Button>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="매출 통계">
+            <Button fx:id="btnSalesStatistics" alignment="CENTER" mnemonicParsing="false" onAction="#handlebtnSalesStatisticsAction" prefHeight="60.0" prefWidth="100.0" text="매출 통계">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin></Button>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="정산 내역">
+            <Button fx:id="btnBalanceAccounts" alignment="CENTER" mnemonicParsing="false" onAction="#handleBtnBalanceAccountsAction" prefHeight="60.0" prefWidth="100.0" text="정산 내역">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin></Button>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" text="메뉴판">
+            <Button fx:id="btnMealMenu" alignment="CENTER" mnemonicParsing="false" onAction="#handleBtnMealMenuAction" prefHeight="60.0" prefWidth="100.0" text="메뉴판">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin></Button>
@@ -37,12 +38,12 @@
    <top>
       <HBox prefHeight="51.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField alignment="CENTER" editable="false" prefHeight="50.0" prefWidth="138.0" text="식당 관리">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </TextField>
-            <TextField alignment="CENTER" editable="false" prefHeight="51.0" prefWidth="538.0" text="설정">
+            <Button fx:id="btnHome" alignment="CENTER" mnemonicParsing="false" onAction="#handleBtnHomeAction" prefHeight="60.0" prefWidth="100.0" text="홈" textAlignment="CENTER">
+               <effect>
+                  <ColorAdjust contrast="0.98" />
+               </effect>
+            </Button>
+            <TextField alignment="CENTER" editable="false" prefHeight="51.0" prefWidth="500.0" text="설정">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
