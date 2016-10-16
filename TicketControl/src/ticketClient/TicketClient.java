@@ -168,6 +168,7 @@ public class TicketClient extends Application{
 		primaryStage.setTitle("Ticket Client");
 		Parent root = FXMLLoader.load(getClass().getResource("Main\\Main.fxml"));
 		Scene scene = new Scene(root);
+		primaryStage.setOnCloseRequest((event)->stopClient());
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
