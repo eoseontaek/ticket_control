@@ -6,21 +6,15 @@ import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousChannelGroup;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
-import java.util.Scanner;
 import java.util.concurrent.Executors;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import ticketServer.BarcodePacket;
-import ticketServer.MenuPacket;
-import ticketServer.PointPacket;
-import ticketServer.TicketPacket;
 import ticketServer.TicketSerialize;
+import ticketServer.packet.TicketPacket;
 
 public class TicketClient extends Application{
 	private AsynchronousChannelGroup channelGroup;

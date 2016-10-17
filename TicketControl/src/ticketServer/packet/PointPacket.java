@@ -1,4 +1,4 @@
-package ticketServer;
+package ticketServer.packet;
 
 public class PointPacket extends TicketPacket{
 	private static final long serialVersionUID = 2L;

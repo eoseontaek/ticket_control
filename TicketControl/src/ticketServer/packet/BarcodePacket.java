@@ -1,4 +1,4 @@
-package ticketServer;
+package ticketServer.packet;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

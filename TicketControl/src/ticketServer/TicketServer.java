@@ -17,6 +17,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ticketServer.packet.BarcodePacket;
+import ticketServer.packet.MenuPacket;
+import ticketServer.packet.PointPacket;
+import ticketServer.packet.TicketPacket;
 
 public class TicketServer extends Application{
 	private AsynchronousChannelGroup channelGroup;
