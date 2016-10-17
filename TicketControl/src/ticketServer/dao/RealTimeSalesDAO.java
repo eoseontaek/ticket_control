@@ -2,6 +2,8 @@ package ticketServer.dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class RealTimeSalesDAO extends TicketDAO<RealTimeSales>{
 
@@ -11,12 +13,12 @@ public class RealTimeSalesDAO extends TicketDAO<RealTimeSales>{
 		
 		sql = "select * from real_time_sales;";
 		
-		ArrayList<RealTimeSales> rtsList = null;
+		List<RealTimeSales> rtsList = null;
 		try {
 			pstmt = connection.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
-			rtsList = new ArrayList<>();
+			rtsList = Collections.synchronizedList(new ArrayList<>());
 			
 			while(rs.next()){
 				int num = rs.getInt("num");
@@ -35,7 +37,7 @@ public class RealTimeSalesDAO extends TicketDAO<RealTimeSales>{
 			closeDB();
 		}
 		
-		return rtsList;
+		return (ArrayList<RealTimeSales>) rtsList;
 	}
 
 	@Override

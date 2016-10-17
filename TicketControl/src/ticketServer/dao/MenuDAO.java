@@ -2,6 +2,8 @@ package ticketServer.dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class MenuDAO extends TicketDAO<Menu>{
 
@@ -10,13 +12,13 @@ public class MenuDAO extends TicketDAO<Menu>{
 		connectDB();
 		
 		sql = "select * from menu;";
-		ArrayList<Menu> menuList = null;
+		List<Menu> menuList = null;
 		
 		try {
 			pstmt = connection.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
-			menuList = new ArrayList<>();
+			menuList = Collections.synchronizedList(new ArrayList<>());
 			while(rs.next()){
 				int num = rs.getInt("num");
 				String information_date = rs.getString("information_date");
@@ -37,7 +39,7 @@ public class MenuDAO extends TicketDAO<Menu>{
 		} finally {
 			closeDB();
 		}
-		return menuList;
+		return (ArrayList<Menu>) menuList;
 	}
 
 	@Override

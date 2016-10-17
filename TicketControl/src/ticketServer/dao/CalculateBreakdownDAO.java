@@ -2,6 +2,8 @@ package ticketServer.dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class CalculateBreakdownDAO extends TicketDAO<CalculateBreakdown>{
 
@@ -10,13 +12,13 @@ public class CalculateBreakdownDAO extends TicketDAO<CalculateBreakdown>{
 		connectDB();
 		
 		sql = "select * from calculate_breakdown;";
-		ArrayList<CalculateBreakdown> cbList = null;
+		List<CalculateBreakdown> cbList = null;
 		
 		try {
 			pstmt = connection.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
-			cbList = new ArrayList<>();
+			cbList = Collections.synchronizedList(new ArrayList<>());
 			while(rs.next()){
 				int num = rs.getInt("num");
 				String purchaser_data = rs.getString("purchaser_data");
@@ -33,7 +35,7 @@ public class CalculateBreakdownDAO extends TicketDAO<CalculateBreakdown>{
 		} finally {
 			closeDB();
 		}
-		return cbList;
+		return (ArrayList<CalculateBreakdown>) cbList;
 	}
 
 	@Override
