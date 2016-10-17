@@ -1,6 +1,8 @@
 package ticketClient.purchase;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -10,18 +12,34 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 
 public class PurchaseController implements Initializable{
 
 	@FXML private Button prevBtn;
 	@FXML private Button menuChk;
+	@FXML private DatePicker datePicker;
+	
+	private String selectedDate;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		prevBtn.setOnAction(event->handleprevBtnAction(event));
 		menuChk.setOnAction(event->handlemenuChkAction(event));
 
+		
+		LocalDate nowDate = LocalDate.now();
+		datePicker.setValue(nowDate);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+		selectedDate = nowDate.format(formatter); /////////////////////////////////오늘날짜로 저장
+		
+		datePicker.setOnAction(event ->{
+			LocalDate date = datePicker.getValue();
+			selectedDate = date.format(formatter); ////////////////////////////////선택되는 날짜로 변경
+			
+		});
+		
 	}
 	public void handlemenuChkAction(ActionEvent event) {
 		try {
