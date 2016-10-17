@@ -118,10 +118,10 @@ public class ClientDAO {
 		return result;
 	}
 	
-	public List<ClientVO> ClientSelect(){
+	public int ClientSelect(){
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		List<ClientVO> clientList = new ArrayList<>();
+		int clientPoint=0;
 		
 		try {
 			String sql = "SELECT POINT "+"FROM CLIENT_POINT";
@@ -132,8 +132,7 @@ public class ClientDAO {
 			rs.next();
 			ClientVO rsClient = new ClientVO();
 			rsClient.setPoint(rs.getInt(1));
-			
-			clientList.add(rsClient);
+			clientPoint = rsClient.getPoint();
 			
 		} catch (Exception e) {
 			System.out.println("DAO Select Error");
@@ -155,6 +154,6 @@ public class ClientDAO {
 				}
 			}
 		}
-		return clientList;
+		return clientPoint;
 	}
 }

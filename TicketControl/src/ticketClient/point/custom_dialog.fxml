@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane prefHeight="150.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="50" fitWidth="50" layoutX="15" layoutY="15" preserveRatio="true">
+         <image><Image url="file:/C:/Users/student/Desktop/eclipse-jee-mars-2-win32-x86_64/eclipse/workspace/TicketControl/ticket_control/TicketControl/src/ticketClient/img/dialog-info.png" /></image>
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/C:/Users/student/Desktop/eclipse-jee-mars-2-win32-x86_64/eclipse/workspace/TicketControl/ticket_control/TicketControl/src/ticketClient/img/dialog-info.png" />
+               </source>
+            </ImageInput>
+         </effect>
+      </ImageView>
+      <Button id="btnOk" layoutX="255.0" layoutY="104.0" prefHeight="23.0" prefWidth="60.0" text="예" />
+      <Label id="txtTitle" layoutX="87.0" layoutY="33.0" prefHeight="15.0" prefWidth="290.0" />
+      <Button id="btnCancel" layoutX="325.0" layoutY="104.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="60.0" text="아니오" />
+   </children>
+</AnchorPane>
