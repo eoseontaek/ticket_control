@@ -14,20 +14,23 @@ import javafx.stage.Stage;
 
 public class MainController implements Initializable{
 
-	@FXML private Button btn1;	// 식권 구매
-	@FXML private Button btn2;	// 구매 확인
-	@FXML private Button btn3;	// 메뉴 정보
+	@FXML private Button btn1;		// 식권 구매
+	@FXML private Button btn2;		// 구매 확인
+	@FXML private Button btn3;		// 메뉴 정보
+	@FXML private Button pointBtn;	// 포인트 충전
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		btn1.setOnAction(event->handleBtn1Action(event));
 		btn2.setOnAction(event->handleBtn2Action(event));
 		btn3.setOnAction(event->handleBtn3Action(event));
+		
+		pointBtn.setOnAction(event->handlePointAction(event));
 	}
 
 	public void handleBtn1Action(ActionEvent event) {
 		try {
-			Parent purchase = FXMLLoader.load(getClass().getResource("..\\Purchase\\TicketPurchase.fxml"));
+			Parent purchase = FXMLLoader.load(getClass().getResource("..\\purchase\\TicketPurchase.fxml"));
 			Scene scene = new Scene(purchase);
 			Stage primaryStage = (Stage) btn1.getScene().getWindow();
 			primaryStage.setScene(scene);
@@ -49,9 +52,20 @@ public class MainController implements Initializable{
 	
 	public void handleBtn3Action(ActionEvent event) {
 		try {
-			Parent menuInfo = FXMLLoader.load(getClass().getResource("..\\MenuInfo\\MenuInfo.fxml"));
+			Parent menuInfo = FXMLLoader.load(getClass().getResource("..\\menuInfo\\MenuInfo.fxml"));
 			Scene scene = new Scene(menuInfo);
 			Stage primaryStage = (Stage) btn3.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void handlePointAction(ActionEvent event) {
+		try {
+			Parent point = FXMLLoader.load(getClass().getResource("..\\point\\Point.fxml"));
+			Scene scene = new Scene(point);
+			Stage primaryStage = (Stage) pointBtn.getScene().getWindow();
 			primaryStage.setScene(scene);
 		} catch (Exception e) {
 			e.printStackTrace();

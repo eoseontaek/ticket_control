@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketClient.point.PointController">
+   <top>
+      <HBox prefHeight="50.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="prevBtn" mnemonicParsing="false" onAction="#handleprevBtnAction" prefHeight="83.0" prefWidth="65.0" text="&lt;">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Button>
+            <TextField alignment="CENTER" editable="false" prefHeight="75.0" prefWidth="255.0" text="포인트 충전">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <padding>
+                  <Insets right="5.0" top="5.0" />
+               </padding>
+            </TextField>
+         </children>
+         <BorderPane.margin>
+            <Insets left="5.0" right="5.0" top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="161.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="163.0" minWidth="10.0" prefWidth="76.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="163.0" minWidth="10.0" prefWidth="67.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="117.0" minHeight="10.0" prefHeight="84.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="193.0" minHeight="0.0" prefHeight="131.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="144.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="114.0" minHeight="0.0" prefHeight="69.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="114.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Line endX="190.0" startX="-100.0" GridPane.columnSpan="2" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+            </Line>
+            <Label prefHeight="29.0" prefWidth="298.0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <Button fx:id="chargeBtn" mnemonicParsing="false" onAction="#handlechargeBtnAction" prefHeight="43.0" prefWidth="290.0" text="포인트 충전하기" GridPane.columnSpan="3" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="현재 포인트" textAlignment="RIGHT" wrappingWidth="71.796875" GridPane.columnIndex="1" />
+            <Label fx:id="currentPoint" prefHeight="15.0" prefWidth="97.0" text="" textAlignment="CENTER" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Button fx:id="chargePoint" disable="true" mnemonicParsing="false" prefHeight="23.0" prefWidth="96.0" text="충전하기" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="40.0" right="5.0" />
+               </GridPane.margin>
+            </Button>
+            <TextField fx:id="chargeTf" alignment="CENTER_RIGHT" disable="true" editable="false" prefHeight="23.0" prefWidth="139.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="60.0" right="50.0" />
+               </GridPane.margin>
+            </TextField>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
