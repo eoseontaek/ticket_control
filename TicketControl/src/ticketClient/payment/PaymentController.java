@@ -10,17 +10,26 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import ticketClient.TicketClient;
+import ticketClient.menuresult.MenuResultController;
+import ticketClient.purchase.PurchaseController;
+import ticketServer.packet.BarcodePacket;
 
 public class PaymentController implements Initializable{
 
 	@FXML private Button prevBtn;
 	@FXML private Button payBtn;
-
+	@FXML private TextField dateTF;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		prevBtn.setOnAction(event->handleBtnAction(event));
 		payBtn.setOnAction(event->handlePayBtnAction(event));
+		
+		dateTF.setText(PurchaseController.displayDate);
+		
 	}
 
 	public void handleBtnAction(ActionEvent event) {
@@ -35,10 +44,27 @@ public class PaymentController implements Initializable{
 	}
 
 	public void handlePayBtnAction(ActionEvent event) {
+//		
+		String count = "0001";
+		
+		String dateBarcode = PurchaseController.selectedDate.substring(2, 8);
+		BarcodeCreator newbc = new BarcodeCreator(MenuResultController.menuSelect, dateBarcode , count);
 
-		//일반식, 특식 구분
-		System.out.println("B메뉴구매"); 
-		BarcodeCreator newbc = new BarcodeCreator(77);
-		//		BarcodeCreator newbc = new BarcodeCreator(99);
+//		// 바코드 생성
+//		//BarcodeCreator newbc = new BarcodeCreator(77);
+//		
+//		// 서버로 구매 요청
+//		TicketClient.instance.send(new BarcodePacket(menu + date + count));
+		
+		try {
+			Parent btna = FXMLLoader.load(getClass().getResource("..\\purchaseChk\\PurchaseChk.fxml"));
+			Scene scene = new Scene(btna);
+			Stage primaryStage = (Stage) payBtn.getScene().getWindow();
+			primaryStage.setScene(scene);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
 	}
 }

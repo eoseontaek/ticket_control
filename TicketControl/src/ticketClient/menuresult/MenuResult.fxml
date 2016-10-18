@@ -10,13 +10,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-prefHeight="450.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="ticketClient.menuresult.MenuResultController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketClient.menuresult.MenuResultController">
    <top>
       <HBox prefHeight="50.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" fx:id="prevBtn" onAction="#handleBtnACtion" prefHeight="83.0" prefWidth="65.0" text="&lt;">
+            <Button fx:id="prevBtn" mnemonicParsing="false" onAction="#handleBtnACtion" prefHeight="83.0" prefWidth="65.0" text="&lt;">
                <font>
                   <Font size="24.0" />
                </font>
@@ -55,7 +53,7 @@ fx:controller="ticketClient.menuresult.MenuResultController">
           <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="14.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField alignment="CENTER" editable="false" prefHeight="42.0" prefWidth="290.0" text="2016.10.3(월)">
+            <TextField fx:id="dateTF" alignment="CENTER" editable="false" prefHeight="42.0" prefWidth="290.0">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
@@ -76,7 +74,7 @@ fx:controller="ticketClient.menuresult.MenuResultController">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor></TextArea>
-                              <Button mnemonicParsing="false" fx:id="btnA" onAction="#handleBtnA" prefHeight="23.0" prefWidth="311.0" text="구매">
+                              <Button fx:id="btnA" mnemonicParsing="false" onAction="#handleBtnA" prefHeight="23.0" prefWidth="311.0" text="구매">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin></Button>
@@ -95,7 +93,7 @@ fx:controller="ticketClient.menuresult.MenuResultController">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor></TextArea>
-                              <Button mnemonicParsing="false" fx:id="btnB" onAction="#handleBtnB" prefHeight="23.0" prefWidth="318.0" text="구매">
+                              <Button fx:id="btnB" mnemonicParsing="false" onAction="#handleBtnB" prefHeight="23.0" prefWidth="318.0" text="구매">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin></Button>

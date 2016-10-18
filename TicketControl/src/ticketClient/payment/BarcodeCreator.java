@@ -15,19 +15,15 @@ import org.krysalis.barcode4j.tools.MimeTypes;
 
 public class BarcodeCreator {
 	
-	public BarcodeCreator(int menu){
+	public BarcodeCreator(String menu, String date, String count){
 	
 	////////////// menuA : 99번으로 시작
 	////////////// menuB : 77번으로 시작
 		
 	String sellCount = "1001"; //////////////////팔린개수 카운트
 	
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-	Calendar c1 = Calendar.getInstance();
-	String strToday = sdf.format(c1.getTime());
-	String today = strToday.substring(2, 8);	
 
-	  String barcodeDate = menu+today+sellCount; //바코트넘버
+	  String barcodeDate = menu+date+sellCount; //바코드넘버
 	
 	  try{
 		  AbstractBarcodeBean bean = null;

@@ -10,13 +10,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import ticketClient.payment.BarcodeCreator;
+import ticketClient.purchase.PurchaseController;
 
 public class MenuResultController implements Initializable{
 
 	@FXML private Button prevBtn;
 	@FXML private Button btnA;
 	@FXML private Button btnB;
+	
+	@FXML private TextField dateTF;
+	
+	public static String menuSelect;
 
 
 
@@ -26,6 +33,9 @@ public class MenuResultController implements Initializable{
 
 		btnA.setOnAction(event->handleBtnA(event));
 		btnB.setOnAction(event->handleBtnB(event));
+		
+		dateTF.setText(PurchaseController.displayDate);
+		
 	}
 
 	public void handleBtnACtion(ActionEvent event) {
@@ -45,6 +55,8 @@ public class MenuResultController implements Initializable{
 			Scene scene = new Scene(btna);
 			Stage primaryStage = (Stage) btnA.getScene().getWindow();
 			primaryStage.setScene(scene);
+			menuSelect = "99";
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -56,6 +68,8 @@ public class MenuResultController implements Initializable{
 			Scene scene = new Scene(btnb);
 			Stage primaryStage = (Stage) btnB.getScene().getWindow();
 			primaryStage.setScene(scene);
+			menuSelect = "77";
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

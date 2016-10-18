@@ -21,7 +21,8 @@ public class PurchaseController implements Initializable{
 	@FXML private Button menuChk;
 	@FXML private DatePicker datePicker;
 	
-	private String selectedDate;
+	public static String selectedDate;
+	public static String displayDate;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -34,10 +35,13 @@ public class PurchaseController implements Initializable{
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
 		selectedDate = nowDate.format(formatter); /////////////////////////////////오늘날짜로 저장
 		
+		DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy.MM.dd (EEE)");
+		displayDate = nowDate.format(formatter2);
+		
 		datePicker.setOnAction(event ->{
 			LocalDate date = datePicker.getValue();
 			selectedDate = date.format(formatter); ////////////////////////////////선택되는 날짜로 변경
-			
+			displayDate = date.format(formatter2);
 		});
 		
 	}
@@ -62,4 +66,5 @@ public class PurchaseController implements Initializable{
 			e.printStackTrace();
 		}
 	}
+
 }

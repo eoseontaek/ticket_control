@@ -10,13 +10,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-prefHeight="450.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="ticketClient.payment.PaymentController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketClient.payment.PaymentController">
    <top>
       <HBox prefHeight="50.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" fx:id="prevBtn" onAction="#handleBtnAction" prefHeight="83.0" prefWidth="65.0" text="&lt;">
+            <Button fx:id="prevBtn" mnemonicParsing="false" onAction="#handleBtnAction" prefHeight="83.0" prefWidth="65.0" text="&lt;">
                <font>
                   <Font size="24.0" />
                </font>
@@ -65,7 +63,7 @@ fx:controller="ticketClient.payment.PaymentController">
           <RowConstraints maxHeight="123.0" minHeight="10.0" prefHeight="93.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField alignment="CENTER" editable="false" prefHeight="51.0" prefWidth="290.0" text="2016.10.3(월)">
+            <TextField fx:id="dateTF" alignment="CENTER" editable="false" prefHeight="51.0" prefWidth="290.0">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
@@ -84,7 +82,7 @@ fx:controller="ticketClient.payment.PaymentController">
                   <Cursor fx:constant="DISAPPEAR" />
                </cursor>
             </TextArea>
-            <Button mnemonicParsing="false" fx:id="payBtn" prefHeight="35.0" prefWidth="290.0" text="결제" GridPane.rowIndex="2">
+            <Button fx:id="payBtn" mnemonicParsing="false" prefHeight="35.0" prefWidth="290.0" text="결제" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
