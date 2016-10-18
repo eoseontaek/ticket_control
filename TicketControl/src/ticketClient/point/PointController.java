@@ -28,15 +28,15 @@ public class PointController implements Initializable{
 	@FXML private TextField chargeTf;
 	@FXML private Label currentPoint;
 	
-	@FXML private Button btnOk;
+	//@FXML private Button btnOk1;
 	@FXML private Button btnCancel;
 	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		prevBtn.setOnAction(event->handleprevBtnAction(event));
-		chargeBtn.setOnAction(event->handlechargeBtnAction(event));
-		chargePoint.setOnAction(event->handleChkAction(event));
+		prevBtn.setOnAction(event->handleprevBtnAction(event));				//뒤로가기
+		chargeBtn.setOnAction(event->handlechargeBtnAction(event));			//포인트 충전하기(활성화)
+		chargePoint.setOnAction(event->handleChkAction(event));				//충전하기
 		
 		ClientDAO dao = new ClientDAO();
 		dao.DBConnection();
@@ -70,26 +70,61 @@ public class PointController implements Initializable{
 	}
 	
 	public void handleChkAction(ActionEvent event) {
-		
+
 		Stage dialog = new Stage(StageStyle.UTILITY);
 		dialog.initModality(Modality.WINDOW_MODAL);
 		dialog.initOwner(primaryStage);
 		dialog.setTitle("확인");
-		
-		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("custom_dialog.fxml"));
-			Label txtTitle = (Label) parent.lookup("#txtTitle");
-			txtTitle.setText("충전하시겠습니까?");
-			//Button btnOk = (Button) parent.lookup("#btnOk");
-			Button btnCancel = (Button) parent.lookup("#btnCancel");
-			btnCancel.setOnAction(event1->dialog.close());	
-			Scene scene = new Scene(parent);
-			
-			dialog.setScene(scene);
-			dialog.setResizable(false);
-			dialog.show();
-		} catch (IOException e) {
-			e.printStackTrace();
+
+		if(chargeTf.getText().isEmpty()){
+			try {
+				Parent parent = FXMLLoader.load(getClass().getResource("ChkDialog.fxml"));
+				Label txtTitle = (Label) parent.lookup("#txtTitle");
+				txtTitle.setText("금액을 입력하세요.");
+				Button btnOk = (Button) parent.lookup("#btnOk");
+				btnOk.setOnAction(event1->dialog.close());	
+				Scene scene = new Scene(parent);
+
+				dialog.setScene(scene);
+				dialog.setResizable(false);
+				dialog.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else{
+			try {
+				Parent parent = FXMLLoader.load(getClass().getResource("..\\point\\YesNoDialog.fxml"));
+				Label txtTitle = (Label) parent.lookup("#txtTitle");
+				txtTitle.setText("충전하시겠습니까?");
+				Button btnCancel = (Button) parent.lookup("#btnCancel");
+				Button btnOk1 = (Button) parent.lookup("#btnOk1");
+				btnCancel.setOnAction(event1->dialog.close());
+				btnOk1.setOnAction(event1->handleUpdateAction(event1));
+				Scene scene = new Scene(parent);
+
+				dialog.setScene(scene);
+				dialog.setResizable(false);
+				dialog.show();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
+	}
+	
+	public void handleUpdateAction(ActionEvent event) {
+		System.out.println("fffffff");
+//		ClientDAO dao = new ClientDAO();
+//		
+////		String ClientPoint = String.valueOf(point);
+////		currentPoint.setText(ClientPoint);
+//		
+//		String UpdatePoint = chargeTf.getText();
+//		int point = Integer.parseInt(UpdatePoint);
+//		
+//		ClientVO data = new ClientVO(point);
+//		
+//		System.out.println(dao.ClientUpdate(data));
+		
 	}
 }
