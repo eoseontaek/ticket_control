@@ -27,6 +27,7 @@ public class TicketServer extends Application{
 	private AsynchronousServerSocketChannel serverSocketChannel;
 	private List<Client> connections = new Vector<>();
 	
+	private static final String SERVER_IP = "localhost";
 	private static final int SERVER_PORT = 6001;
 	private static final int BUFFER_SIZE = 1024;
 	
@@ -120,7 +121,7 @@ public class TicketServer extends Application{
 		try {
 			channelGroup = AsynchronousChannelGroup.withFixedThreadPool(Runtime.getRuntime().availableProcessors(), Executors.defaultThreadFactory());
 			serverSocketChannel = AsynchronousServerSocketChannel.open(channelGroup);
-			serverSocketChannel.bind(new InetSocketAddress(SERVER_PORT));
+			serverSocketChannel.bind(new InetSocketAddress(SERVER_IP, SERVER_PORT));
 		} catch (IOException e) {
 			if (serverSocketChannel.isOpen()){
 				stopServer();
