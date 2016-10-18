@@ -7,8 +7,11 @@ import java.nio.channels.AsynchronousChannelGroup;
 import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Vector;
 import java.util.concurrent.Executors;
 
@@ -28,6 +31,7 @@ public class TicketServer extends Application{
 	private List<Client> connections = new Vector<>();
 	
 	private static final String SERVER_IP = "localhost";
+//	private static final String SERVER_IP = "70.12.109.100";
 	private static final int SERVER_PORT = 6001;
 	private static final int BUFFER_SIZE = 1024;
 	
@@ -42,13 +46,38 @@ public class TicketServer extends Application{
 		}
 		
 		void response(TicketPacket packet){
+			SimpleDateFormat sdf = null;
+			Date currentTime = null;
+			
 			if(packet instanceof PointPacket){
 				PointPacket p = (PointPacket)packet;
 				p.setPoint(p.getPoint());
+				
+				try {
+					System.out.println("구매자 정보 : "+socketChannel.getRemoteAddress());
+					sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.KOREA);
+					currentTime = new Date();
+					System.out.println("구매시간 : "+ sdf.format(currentTime));
+					System.out.println("구매금액 : "+ p.getPoint());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			else if (packet instanceof BarcodePacket){
 				BarcodePacket p = (BarcodePacket)packet;
 				p.setBarcode(p.getBarcode());
+				try {
+					System.out.println("구매자 정보 : "+socketChannel.getRemoteAddress());
+					sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.KOREA);
+					currentTime = new Date();
+					System.out.println("정산시간 : "+ sdf.format(currentTime));
+					int amount = Integer.parseInt(p.getBarcode().substring(0, 2)) * 100;
+					System.out.println("정산금액 : " + amount);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			else if (packet instanceof MenuPacket){
 				MenuPacket p = (MenuPacket)packet;
