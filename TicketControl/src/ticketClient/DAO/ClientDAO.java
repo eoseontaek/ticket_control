@@ -70,8 +70,8 @@ public class ClientDAO {
 		
 		try {
 			String sql = "UPDATE CLIENT_POINT SET POINT=?";
+
 			pstmt = con.prepareStatement(sql);
-			
 			pstmt.setInt(1, cvo.getPoint());
 			
 			result = pstmt.executeUpdate(); 
