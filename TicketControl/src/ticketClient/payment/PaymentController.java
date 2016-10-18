@@ -17,7 +17,7 @@ import ticketClient.menuresult.MenuResultController;
 import ticketClient.purchase.PurchaseController;
 import ticketServer.packet.BarcodePacket;
 
-public class PaymentController implements Initializable{
+public class PaymentController implements Initializable {
 
 	@FXML private Button prevBtn;
 	@FXML private Button payBtn;
@@ -25,6 +25,7 @@ public class PaymentController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
 		prevBtn.setOnAction(event->handleBtnAction(event));
 		payBtn.setOnAction(event->handlePayBtnAction(event));
 		
@@ -50,9 +51,6 @@ public class PaymentController implements Initializable{
 		String dateBarcode = PurchaseController.selectedDate.substring(2, 8);
 		BarcodeCreator newbc = new BarcodeCreator(MenuResultController.menuSelect, dateBarcode , count);
 
-//		// 바코드 생성
-//		//BarcodeCreator newbc = new BarcodeCreator(77);
-//		
 //		// 서버로 구매 요청
 //		TicketClient.instance.send(new BarcodePacket(menu + date + count));
 		
@@ -65,6 +63,6 @@ public class PaymentController implements Initializable{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	
+
 	}
 }

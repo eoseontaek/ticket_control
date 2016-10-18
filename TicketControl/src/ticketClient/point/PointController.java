@@ -2,7 +2,6 @@ package ticketClient.point;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -17,8 +16,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import ticketClient.TicketClient;
 import ticketClient.DAO.ClientDAO;
-import ticketClient.DAO.ClientVO;
+import ticketServer.packet.PointPacket;
 
 public class PointController implements Initializable{
 
@@ -28,10 +28,6 @@ public class PointController implements Initializable{
 	@FXML private TextField chargeTf;
 	@FXML private Label currentPoint;
 	
-	//@FXML private Button btnOk1;
-	@FXML private Button btnCancel;
-	
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		prevBtn.setOnAction(event->handleprevBtnAction(event));				//뒤로가기
@@ -68,10 +64,10 @@ public class PointController implements Initializable{
 		chargePoint.setDisable(false);
 		chargeTf.setDisable(false);
 	}
-	
+	Stage dialog;
 	public void handleChkAction(ActionEvent event) {
 
-		Stage dialog = new Stage(StageStyle.UTILITY);
+		dialog = new Stage(StageStyle.UTILITY);
 		dialog.initModality(Modality.WINDOW_MODAL);
 		dialog.initOwner(primaryStage);
 		dialog.setTitle("확인");
@@ -91,9 +87,9 @@ public class PointController implements Initializable{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}else{
+		}else if(!chargeTf.getText().isEmpty()){
 			try {
-				Parent parent = FXMLLoader.load(getClass().getResource("..\\point\\YesNoDialog.fxml"));
+				Parent parent = FXMLLoader.load(getClass().getResource("YesNoDialog.fxml"));
 				Label txtTitle = (Label) parent.lookup("#txtTitle");
 				txtTitle.setText("충전하시겠습니까?");
 				Button btnCancel = (Button) parent.lookup("#btnCancel");
@@ -101,7 +97,7 @@ public class PointController implements Initializable{
 				btnCancel.setOnAction(event1->dialog.close());
 				btnOk1.setOnAction(event1->handleUpdateAction(event1));
 				Scene scene = new Scene(parent);
-
+				
 				dialog.setScene(scene);
 				dialog.setResizable(false);
 				dialog.show();
@@ -113,18 +109,11 @@ public class PointController implements Initializable{
 	}
 	
 	public void handleUpdateAction(ActionEvent event) {
-		System.out.println("fffffff");
-//		ClientDAO dao = new ClientDAO();
-//		
-////		String ClientPoint = String.valueOf(point);
-////		currentPoint.setText(ClientPoint);
-//		
-//		String UpdatePoint = chargeTf.getText();
-//		int point = Integer.parseInt(UpdatePoint);
-//		
-//		ClientVO data = new ClientVO(point);
-//		
-//		System.out.println(dao.ClientUpdate(data));
+		int amount = Integer.parseInt(chargeTf.getText());
+		System.out.println("충전 요청 금액 : "+ amount);
 		
+		TicketClient.instance.send(new PointPacket(amount));
+		
+		dialog.close();
 	}
 }

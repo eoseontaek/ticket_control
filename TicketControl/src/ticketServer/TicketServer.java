@@ -30,6 +30,7 @@ public class TicketServer extends Application{
 	private static final int SERVER_PORT = 6001;
 	private static final int BUFFER_SIZE = 1024;
 	
+	
 	class Client{
 		AsynchronousSocketChannel socketChannel;
 		
@@ -42,15 +43,11 @@ public class TicketServer extends Application{
 		void response(TicketPacket packet){
 			if(packet instanceof PointPacket){
 				PointPacket p = (PointPacket)packet;
-				
 				p.setPoint(p.getPoint());
 			}
 			else if (packet instanceof BarcodePacket){
 				BarcodePacket p = (BarcodePacket)packet;
-				
-				String barcodePath = "D:\\JAVA\\Temp\\IMGL7609.jpg";
-				p.setBarcodePath(barcodePath);					
-				
+				p.setBarcode(p.getBarcode());
 			}
 			else if (packet instanceof MenuPacket){
 				MenuPacket p = (MenuPacket)packet;

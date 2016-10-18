@@ -18,6 +18,6 @@ public class PointPacket extends TicketPacket{
 	
 	@Override
 	public void result(){
-		System.out.println(getClass().getName() + " : " + point);
+		System.out.println("응답 포인트 : " + point);
 	};
 }
