@@ -17,6 +17,8 @@ import ticketServer.TicketSerialize;
 import ticketServer.packet.TicketPacket;
 
 public class TicketClient extends Application{
+	public static TicketClient instance;
+	
 	private AsynchronousChannelGroup channelGroup;
 	private AsynchronousSocketChannel socketChannel;
 	
@@ -65,7 +67,7 @@ public class TicketClient extends Application{
 		}
 	}
 	
-	void receive(){
+	public void receive(){
 		ByteBuffer byteBuffer = ByteBuffer.allocate(BUFFER_SIZE);
 
 		socketChannel.read(byteBuffer, byteBuffer, new CompletionHandler<Integer, ByteBuffer>() {
@@ -94,7 +96,7 @@ public class TicketClient extends Application{
 		});
 	}
 
-	void send(Object obj){
+	public void send(Object obj){
 		byte [] data = TicketSerialize.serialize(obj);
 		
 		ByteBuffer buffer = ByteBuffer.allocate(BUFFER_SIZE);
@@ -116,47 +118,12 @@ public class TicketClient extends Application{
 	}
 	
 	public static void main(String[] args) {
-		
 		launch(args);
-		
-//		Scanner scanner = new Scanner(System.in);
-//
-//		TicketClient client = new TicketClient();
-//		client.startClient();
-//		
-//		while(true){
-//			boolean bexit = false;
-//			System.out.println("1. point");
-//			System.out.println("2. barcode");
-//			System.out.println("3. menu");
-//			System.out.println("0. exit");
-//			System.out.print(">> ");
-//			int data = scanner.nextInt();
-//			
-//			switch(data){
-//			case 0:
-//				bexit = true;
-//				break;
-//			case 1:
-//				client.send(new PointPacket(10000));
-//				break;
-//			case 2:
-//				client.send(new BarcodePacket(null));
-//				break;
-//			case 3:
-//				client.send(new MenuPacket(null));
-//				break;
-//			}
-//			
-//			if(bexit == true) break;
-//			System.out.println();
-//		}
-//		
-//		client.stopClient();
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		instance = this;
 		
 		startClient();
 		primaryStage.setTitle("Ticket Client");

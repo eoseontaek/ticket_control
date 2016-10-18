@@ -11,14 +11,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import ticketClient.TicketClient;
+import ticketServer.packet.BarcodePacket;
 
-public class PaymentController implements Initializable{
+public class PaymentController implements Initializable {
 
 	@FXML private Button prevBtn;
 	@FXML private Button payBtn;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
 		prevBtn.setOnAction(event->handleBtnAction(event));
 		payBtn.setOnAction(event->handlePayBtnAction(event));
 	}
@@ -36,9 +39,15 @@ public class PaymentController implements Initializable{
 
 	public void handlePayBtnAction(ActionEvent event) {
 
-		//일반식, 특식 구분
-		System.out.println("B메뉴구매"); 
-		BarcodeCreator newbc = new BarcodeCreator(77);
-		//		BarcodeCreator newbc = new BarcodeCreator(99);
+		// 바코드 생성 정보 가져오기
+		String menu = "99";
+		String date = "161018";
+		String count = "0001";
+		
+		// 바코드 생성
+		//BarcodeCreator newbc = new BarcodeCreator(77);
+		
+		// 서버로 구매 요청
+		TicketClient.instance.send(new BarcodePacket(menu + date + count));
 	}
 }
