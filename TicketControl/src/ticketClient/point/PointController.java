@@ -28,9 +28,6 @@ public class PointController implements Initializable{
 	@FXML private TextField chargeTf;
 	@FXML private Label currentPoint;
 	
-	//@FXML private Button btnOk1;
-	@FXML private Button btnCancel;
-	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -91,9 +88,9 @@ public class PointController implements Initializable{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}else{
+		}else if(!chargeTf.getText().isEmpty()){
 			try {
-				Parent parent = FXMLLoader.load(getClass().getResource("..\\point\\YesNoDialog.fxml"));
+				Parent parent = FXMLLoader.load(getClass().getResource("YesNoDialog.fxml"));
 				Label txtTitle = (Label) parent.lookup("#txtTitle");
 				txtTitle.setText("충전하시겠습니까?");
 				Button btnCancel = (Button) parent.lookup("#btnCancel");
@@ -114,17 +111,5 @@ public class PointController implements Initializable{
 	
 	public void handleUpdateAction(ActionEvent event) {
 		System.out.println("fffffff");
-//		ClientDAO dao = new ClientDAO();
-//		
-////		String ClientPoint = String.valueOf(point);
-////		currentPoint.setText(ClientPoint);
-//		
-//		String UpdatePoint = chargeTf.getText();
-//		int point = Integer.parseInt(UpdatePoint);
-//		
-//		ClientVO data = new ClientVO(point);
-//		
-//		System.out.println(dao.ClientUpdate(data));
-		
 	}
 }
