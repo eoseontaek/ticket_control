@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClientDAO {
-	private final String DB_URL = "jdbc:mysql://localhost:3306/java";
+	private final String DB_URL = "jdbc:mysql://70.12.109.110:3306/java";
 	private final String DB_ID = "root";
 	private final String DB_PW = "sds902";
 	
