@@ -68,7 +68,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <DatePicker fx:id="datePicker" prefHeight="23.0" prefWidth="269.0" GridPane.columnSpan="2">
+            <DatePicker fx:id="datePicker" editable="false" prefHeight="23.0" prefWidth="269.0" GridPane.columnSpan="2">
                <GridPane.margin>
                   <Insets left="15.0" top="30.0" />
                </GridPane.margin>

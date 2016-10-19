@@ -31,7 +31,7 @@ public class PointPacket extends TicketPacket{
 		dao.DBConnection();
 		int value = point+dao.ClientSelect();
 		cvo = new ClientVO(value);
-		System.out.println(dao.ClientUpdate(cvo));
+		dao.ClientUpdate(cvo);
 		
 		Platform.runLater(()->{
 			PointController.instance.getCurrentPoint().setText(value+"");

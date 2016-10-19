@@ -118,7 +118,8 @@ public class PointController implements Initializable{
 		System.out.println("충전 요청 금액 : "+ amount);
 		
 		TicketClient.instance.send(new PointPacket(amount));
-		
+
+		chargeTf.setText("");
 		dialog.close();
 	}
 }

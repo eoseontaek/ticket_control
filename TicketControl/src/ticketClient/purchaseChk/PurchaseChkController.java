@@ -39,11 +39,10 @@ public class PurchaseChkController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		dateTF.setText(PurchaseController.displayDate);
-		
 		prevBtn.setOnAction(event->handleBtnACtion(event));
 	
 		//이미지 로딩		
-				File file = new File("d:/barcode/"+barcodeCheck()); 
+				File file = new File("c:/barcode/"+barcodeCheck()); 
 				/////////////////////////////바코드 파일 경로
 				Image image = new Image(file.toURI().toString());
 				//이미지뷰 영역에  바코드
