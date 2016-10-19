@@ -1,6 +1,8 @@
 package ticketClient.main;
 
+import java.net.InetAddress;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -11,6 +13,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import ticketClient.DAO.ClientDAO;
+import ticketClient.DAO.ClientVO;
 
 public class MainController implements Initializable{
 
@@ -62,13 +66,31 @@ public class MainController implements Initializable{
 	}
 	
 	public void handlePointAction(ActionEvent event) {
+
+		ClientDAO dao = new ClientDAO();
+		InetAddress local = null;
+
+		dao.DBConnection();
+
 		try {
-			Parent point = FXMLLoader.load(getClass().getResource("..\\point\\Point.fxml"));
-			Scene scene = new Scene(point);
-			Stage primaryStage = (Stage) pointBtn.getScene().getWindow();
-			primaryStage.setScene(scene);
-		} catch (Exception e) {
-			e.printStackTrace();
+			local = InetAddress.getLocalHost();
+		} catch (UnknownHostException e1) {
+			e1.printStackTrace();
+		}
+
+		ClientVO vo = new ClientVO(local.getHostAddress(),0);
+
+		if(vo.getIp().equals(local.getHostAddress())){
+			try {
+				Parent point = FXMLLoader.load(getClass().getResource("..\\point\\Point.fxml"));
+				Scene scene = new Scene(point);
+				Stage primaryStage = (Stage) pointBtn.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else{
+			dao.ClientInsert(vo);
 		}
 	}
 

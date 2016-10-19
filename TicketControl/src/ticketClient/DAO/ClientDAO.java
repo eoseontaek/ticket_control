@@ -1,5 +1,7 @@
 package ticketClient.DAO;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,13 +42,17 @@ public class ClientDAO {
 		}
 	}
 	
-	public int ClientInsert(){
+	public int ClientInsert(ClientVO vo){
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
 		try {
-			String sql = "";
+			String sql = "INSERT INTO CLIENT_POINT(IP, POINT)"+"VALUE(?,?)";
 			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, vo.getIp());
+			pstmt.setInt(2, vo.getPoint());
+			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("DAO insert Error");

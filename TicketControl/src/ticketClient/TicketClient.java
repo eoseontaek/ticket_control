@@ -1,6 +1,7 @@
 package ticketClient;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousChannelGroup;
@@ -27,6 +28,11 @@ public class TicketClient extends Application{
 	private static final int BUFFER_SIZE = 1024;
 	
 	
+	
+	public AsynchronousSocketChannel getSocketChannel() {
+		return socketChannel;
+	}
+
 	void startClient(){
 		try {
 			channelGroup = AsynchronousChannelGroup.withFixedThreadPool(Runtime.getRuntime().availableProcessors(),
@@ -38,9 +44,8 @@ public class TicketClient extends Application{
 				@Override
 				public void completed(Void result, Void attachment) {
 					System.out.println("[연결완료]");
-
+				
 					receive();
-					
 				}
 
 				@Override
@@ -64,6 +69,7 @@ public class TicketClient extends Application{
 			try {
 				channelGroup.shutdownNow();
 			} catch (IOException e) {
+
 			}
 		}
 	}
