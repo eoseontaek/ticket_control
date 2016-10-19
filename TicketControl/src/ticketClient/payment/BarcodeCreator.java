@@ -15,15 +15,13 @@ import org.krysalis.barcode4j.tools.MimeTypes;
 
 public class BarcodeCreator {
 	
-	public BarcodeCreator(String menu, String date, String count){
+	public BarcodeCreator(String menu, String date, String random){
 	
 	////////////// menuA : 99번으로 시작
 	////////////// menuB : 77번으로 시작
-		
-	String sellCount = "1001"; //////////////////팔린개수 카운트
-	
 
-	  String barcodeDate = menu+date+sellCount; //바코드넘버
+
+	  String barcodeDate = menu+date+random; //바코드넘버
 	
 	  try{
 		  AbstractBarcodeBean bean = null;

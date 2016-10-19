@@ -11,14 +11,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import ticketClient.purchase.PurchaseController;
 
 public class PurchaseChkController implements Initializable{
 
 	@FXML private Button prevBtn;
 	@FXML private ImageView BarcodeImage;
+	@FXML private TextField dateTF;
 	
 	
 	public String barcodeCheck(){
@@ -34,6 +37,9 @@ public class PurchaseChkController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		dateTF.setText(PurchaseController.displayDate);
+		
 		prevBtn.setOnAction(event->handleBtnACtion(event));
 	
 		//이미지 로딩		

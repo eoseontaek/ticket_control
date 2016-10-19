@@ -45,14 +45,15 @@ public class PaymentController implements Initializable {
 	}
 
 	public void handlePayBtnAction(ActionEvent event) {
-//		
-		String count = "0001";
 		
+		String random = Integer.toString((int)(Math.random()*10000));
+				
 		String dateBarcode = PurchaseController.selectedDate.substring(2, 8);
-		BarcodeCreator newbc = new BarcodeCreator(MenuResultController.menuSelect, dateBarcode , count);
+		String menu = MenuResultController.menuSelect;
+		BarcodeCreator bc = new BarcodeCreator(menu, dateBarcode , random);
 
-//		// 서버로 구매 요청
-//		TicketClient.instance.send(new BarcodePacket(menu + date + count));
+		// 서버로 구매 요청
+		TicketClient.instance.send(new BarcodePacket(menu + dateBarcode + random));
 		
 		try {
 			Parent btna = FXMLLoader.load(getClass().getResource("..\\purchaseChk\\PurchaseChk.fxml"));

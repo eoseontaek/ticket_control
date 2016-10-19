@@ -10,9 +10,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-prefHeight="450.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="ticketClient.purchaseChk.PurchaseChkController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ticketClient.purchaseChk.PurchaseChkController">
    <top>
       <HBox prefHeight="50.0" prefWidth="290.0" BorderPane.alignment="CENTER">
          <children>
@@ -66,7 +64,7 @@ fx:controller="ticketClient.purchaseChk.PurchaseChkController">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor></TextArea>
-            <TextField alignment="CENTER" editable="false" prefHeight="42.0" prefWidth="290.0" text="2016.10.3(월)">
+            <TextField fx:id="dateTF" alignment="CENTER" editable="false" prefHeight="42.0" prefWidth="290.0">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
