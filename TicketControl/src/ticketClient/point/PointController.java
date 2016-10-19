@@ -21,15 +21,20 @@ import ticketClient.DAO.ClientDAO;
 import ticketServer.packet.PointPacket;
 
 public class PointController implements Initializable{
-
+	public static PointController instance;
+	
 	@FXML private Button prevBtn;
 	@FXML private Button chargeBtn;
 	@FXML private Button chargePoint;
 	@FXML private TextField chargeTf;
 	@FXML private Label currentPoint;
 	
+	public Label getCurrentPoint(){
+		return currentPoint;
+	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		instance = this;
 		prevBtn.setOnAction(event->handleprevBtnAction(event));				//뒤로가기
 		chargeBtn.setOnAction(event->handlechargeBtnAction(event));			//포인트 충전하기(활성화)
 		chargePoint.setOnAction(event->handleChkAction(event));				//충전하기
