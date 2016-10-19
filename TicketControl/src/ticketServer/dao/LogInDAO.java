@@ -3,15 +3,13 @@ package ticketServer.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class LogInDAO extends TicketDAO<LogIn>{
+public class LogInDAO extends TicketDAO{
 
-	@Override
 	public ArrayList<LogIn> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public LogIn getData(int index) {
 		connectDB();
 		
@@ -36,7 +34,6 @@ public class LogInDAO extends TicketDAO<LogIn>{
 		return login;
 	}
 
-	@Override
 	public boolean insertData(LogIn t) {
 		connectDB();
 		
@@ -56,7 +53,6 @@ public class LogInDAO extends TicketDAO<LogIn>{
 		return true;
 	}
 
-	@Override
 	public boolean delData(int index) {
 		connectDB();
 		sql = "delete from login where num=?;";
@@ -73,7 +69,6 @@ public class LogInDAO extends TicketDAO<LogIn>{
 		return true;
 	}
 
-	@Override
 	public boolean delAll() {
 		connectDB();
 		sql = "delete from login;";
@@ -89,7 +84,6 @@ public class LogInDAO extends TicketDAO<LogIn>{
 		return true;
 	}
 
-	@Override
 	public boolean updateData(LogIn t) {
 		// TODO Auto-generated method stub
 		return false;
