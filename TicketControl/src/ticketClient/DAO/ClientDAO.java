@@ -47,7 +47,7 @@ public class ClientDAO {
 		int result = 0;
 		
 		try {
-			String sql = "INSERT INTO CLIENT_POINT(IP, POINT)"+"VALUE(?,?)";
+			String sql = "INSERT IGNORE INTO CLIENT_POINT(IP, POINT)"+ "VALUE(?,?)";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, vo.getIp());
@@ -133,10 +133,11 @@ public class ClientDAO {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
-			rs.next();
-			ClientVO rsClient = new ClientVO();
-			rsClient.setPoint(rs.getInt(1));
-			clientPoint = rsClient.getPoint();
+			while(rs.next()){
+				ClientVO rsClient = new ClientVO();
+				rsClient.setPoint(rs.getInt(1));
+				clientPoint = rsClient.getPoint();
+			}
 			
 		} catch (Exception e) {
 			System.out.println("DAO Select Error");

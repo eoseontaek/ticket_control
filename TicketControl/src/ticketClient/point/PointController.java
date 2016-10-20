@@ -40,8 +40,9 @@ public class PointController implements Initializable{
 		chargePoint.setOnAction(event->handleChkAction(event));				//충전하기
 		
 		ClientDAO dao = new ClientDAO();
-		dao.DBConnection();
 		
+		dao.DBConnection();
+			
 		int point = dao.ClientSelect();
 		String ClientPoint = String.valueOf(point);
 		
