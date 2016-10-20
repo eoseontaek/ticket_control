@@ -42,7 +42,6 @@ public class BarcodeScan extends Thread{
 				}
 				
 			} catch (IOException e) {
-				System.out.println("¿À·ù");
 			}
 		
 		}		
