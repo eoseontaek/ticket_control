@@ -11,15 +11,24 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LogInContoller implements Initializable{
 	@FXML private Button btnLogIn;
 	@FXML private TextField txtFieldID;
 	@FXML private PasswordField pwFieldPW;
 	
+	Stage dialog;
+	
+	private Stage primaryStage;	
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+	}
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -34,9 +43,13 @@ public class LogInContoller implements Initializable{
 		System.out.println("id :" + txtFieldID.getText());
 		System.out.println("pw :" + pwFieldPW.getText());
 		
+		dialog = new Stage(StageStyle.UTILITY);
+		dialog.initModality(Modality.WINDOW_MODAL);
+		dialog.initOwner(primaryStage);
+		dialog.setTitle("확인");
 		
 		///////////////////////////////////////////////////////////		
-		if (true) { // id, pw 일치하면...
+		if (txtFieldID.getText().equals("admin") && pwFieldPW.getText().equals("admin")) { // id, pw 일치하면...
 			try {
 				Parent administrator = FXMLLoader
 						.load(getClass().getResource("..\\administratorMain\\AdministratorMain.fxml"));
@@ -48,7 +61,20 @@ public class LogInContoller implements Initializable{
 				e.printStackTrace();
 			}
 		} else { // id, pw 일치하지 않으면...
-			
+			try {
+				Parent parent = FXMLLoader.load(getClass().getResource("..\\..\\ticketClient\\point\\ChkDialog.fxml"));
+				Label txtTitle = (Label) parent.lookup("#txtTitle");
+				txtTitle.setText("아이디 또는 비밀번호를 다시 확인하세요.");
+				Button btnOk = (Button) parent.lookup("#btnOk");
+				btnOk.setOnAction(event1->dialog.close());	
+				Scene scene = new Scene(parent);
+
+				dialog.setScene(scene);
+				dialog.setResizable(false);
+				dialog.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }

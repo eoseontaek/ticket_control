@@ -1,7 +1,5 @@
 package ticketClient.DAO;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -75,10 +73,11 @@ public class ClientDAO {
 		int result=0;
 		
 		try {
-			String sql = "UPDATE CLIENT_POINT SET POINT=?";
+			String sql = "UPDATE CLIENT_POINT SET POINT=? WHERE IP=' ? '";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setInt(1, cvo.getPoint());
+			pstmt.setString(2, cvo.getIp());
 			
 			result = pstmt.executeUpdate(); 
 		} catch (Exception e) {
