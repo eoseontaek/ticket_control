@@ -3,29 +3,41 @@ package ticketServer.packet;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import ticketServer.dao.Menu;
+
 public class MenuPacket extends TicketPacket{
 	private static final long serialVersionUID = 4L;
-	private ArrayList<String> menuList;
+	private ArrayList<Menu []> menuList;
 	
-	public MenuPacket(ArrayList<String> menuList) {
+	public MenuPacket() {
+		this(null);
+	}
+	
+	public MenuPacket(ArrayList<Menu []> menuList) {
 		this.menuList = menuList;
 	}
 	
-	public ArrayList<String> getMenuList() {
+	public ArrayList<Menu []> getMenuList() {
 		return menuList;
 	}
 	
-	public void setMenuList(ArrayList<String> menuList) {
+	public void setMenuList(ArrayList<Menu []> menuList) {
 		this.menuList = menuList;
 	}
 
 	@Override
 	public void result() {
+			System.out.println("수신완료");
 		if(!menuList.isEmpty()){
-			Iterator<String> iterator = menuList.iterator();
+			Iterator<Menu []> iterator = menuList.iterator();
 			while(iterator.hasNext()){
-				String data = iterator.next();
-				System.out.println(data);
+				Menu [] array = iterator.next();
+				for (Menu menu : array) {
+
+					System.out.println(menu.getNum() + " " + menu.getInformation_date() + " " + menu.getMenu_type()
+							+ " " + menu.getRice() + " " + menu.getSidedish1() + " " + menu.getSidedish2() + " "
+							+ menu.getSidedish3() + " " + menu.getImage() + " ");
+				}
 			}
 		}
 	}

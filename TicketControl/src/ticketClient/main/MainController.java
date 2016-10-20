@@ -13,8 +13,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import ticketClient.TicketClient;
 import ticketClient.DAO.ClientDAO;
 import ticketClient.DAO.ClientVO;
+import ticketServer.packet.MenuPacket;
 
 public class MainController implements Initializable{
 
@@ -55,6 +57,12 @@ public class MainController implements Initializable{
 	}
 	
 	public void handleBtn3Action(ActionEvent event) {
+		
+		System.out.println("메뉴정보");
+		
+		TicketClient.instance.send(new MenuPacket());
+		
+		
 		try {
 			Parent menuInfo = FXMLLoader.load(getClass().getResource("..\\menuInfo\\MenuInfo.fxml"));
 			Scene scene = new Scene(menuInfo);

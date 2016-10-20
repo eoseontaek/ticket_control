@@ -10,6 +10,7 @@ import java.nio.channels.CompletionHandler;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
@@ -20,6 +21,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ticketServer.dao.Menu;
+import ticketServer.dao.MenuDAO;
 import ticketServer.packet.BarcodePacket;
 import ticketServer.packet.MenuPacket;
 import ticketServer.packet.PointPacket;
@@ -81,13 +84,30 @@ public class TicketServer extends Application{
 			}
 			else if (packet instanceof MenuPacket){
 				MenuPacket p = (MenuPacket)packet;
+				MenuDAO dao = new MenuDAO();
 				
-				ArrayList<String> list = new ArrayList<>();
-				for(int i = 0; i< 10 ;i++) list.add(i, "String+" + i);
+//				List<Menu []> list = dao.getWeekMenu(dao.searchMonday(dao.today()));
+				ArrayList<Menu []> list = new ArrayList<>();
+				Menu [] menues = new Menu [2];
+				
+				for (int i = 0; i< menues.length;i++) {
+					menues[i] = new Menu();
+					menues[i].setNum(1);
+					menues[i].setInformation_date("2016.10.19");
+					menues[i].setMenu_type(1);
+					menues[i].setRice("rice");
+					menues[i].setSoup("soup");
+					menues[i].setSidedish1("sidedish1");
+					menues[i].setSidedish2("sidedish2");
+					menues[i].setSidedish3("sidedish3");
+					menues[i].setImage("C:\\menu\\9920161019.img");
+				}
+				list.add(menues);
+				
 				p.setMenuList(list);
 			}
 			else {
-				System.out.println("[Warning] Invalid Packet.");
+				System.out.println("잘못된 패킷입니다.");
 			}
 		}
 		
@@ -102,7 +122,7 @@ public class TicketServer extends Application{
 					byte [] bytes = attachment.array();
 					TicketPacket packet = (TicketPacket)TicketSerialize.deserialize(bytes);
 					response(packet);
-									
+								
 					// 요청 클라이언트로 응답처리 /////////////////////////////////
 					Client.this.send(packet);
 					
@@ -120,6 +140,8 @@ public class TicketServer extends Application{
 				}
 			});
 		}
+		
+		
 		
 		void send(Object obj){ 
 			byte[] bytes = TicketSerialize.serialize(obj);
@@ -217,5 +239,4 @@ public class TicketServer extends Application{
 	public static void main(String[] args) {
 		launch(args);
 	}
-
 }

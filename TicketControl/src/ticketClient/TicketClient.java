@@ -1,7 +1,6 @@
 package ticketClient;
 
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousChannelGroup;
@@ -24,6 +23,7 @@ public class TicketClient extends Application{
 	private AsynchronousSocketChannel socketChannel;
 	
 	private static final String SERVER_IP = "localhost";
+//	private static final String SERVER_IP = "70.12.109.100";
 	private static final int SERVER_PORT = 6001;
 	private static final int BUFFER_SIZE = 1024;
 	
@@ -84,6 +84,27 @@ public class TicketClient extends Application{
 				byte[] bytes = attachment.array();
 				TicketPacket packet = (TicketPacket) TicketSerialize.deserialize(bytes);
 
+//				if (packet instanceof MenuPacket){
+//					List<Menu []> list = ((MenuPacket)packet).getMenuList();
+//					Iterator<Menu []> e = list.iterator();
+//					while(e.hasNext()){
+//						Menu [] array = e.next();
+//						for (Menu menu : array) {
+//							
+//						System.out.println(menu.getNum() + " " 
+//										+ menu.getInformation_date() + " "
+//										+ menu.getMenu_type() + " "
+//										+ menu.getRice() + " "
+//										+ menu.getSidedish1() + " "
+//										+ menu.getSidedish2() + " "
+//										+ menu.getSidedish3() + " "
+//										+ menu.getImage() + " "
+//								);
+//						}
+//						System.out.println();
+//					}
+//				}
+				
 				if (packet != null) {
 					packet.result();
 				}
