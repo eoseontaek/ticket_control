@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import ticketClient.TicketClient;
 import ticketClient.menuresult.MenuResultController;
 import ticketClient.purchase.PurchaseController;
+import ticketServer.dao.Barcode;
+import ticketServer.dao.BarcodeDAO;
 import ticketServer.packet.BarcodePacket;
 
 public class PaymentController implements Initializable {
@@ -50,10 +52,14 @@ public class PaymentController implements Initializable {
 				
 		String dateBarcode = PurchaseController.selectedDate.substring(2, 8);
 		String menu = MenuResultController.menuSelect;
-		BarcodeCreator bc = new BarcodeCreator(menu, dateBarcode , random);
+		BarcodeCreator bc = new BarcodeCreator(menu, dateBarcode, random);
 
 		// 서버로 구매 요청
 		TicketClient.instance.send(new BarcodePacket(menu + dateBarcode + random));
+		
+		BarcodeDAO dao = new BarcodeDAO();
+		Barcode barcode = new Barcode(BarcodeCreator.barcodeDate, 0);
+		dao.insertBarcode(barcode);
 		
 		try {
 			Parent btna = FXMLLoader.load(getClass().getResource("..\\purchaseChk\\PurchaseChk.fxml"));

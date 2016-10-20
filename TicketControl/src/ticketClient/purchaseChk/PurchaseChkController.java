@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import ticketClient.payment.BarcodeCreator;
 import ticketClient.purchase.PurchaseController;
 
 public class PurchaseChkController implements Initializable{
@@ -26,11 +27,9 @@ public class PurchaseChkController implements Initializable{
 	
 	public String barcodeCheck(){
 		
-		//////////////////////////////////////////////////////
-		// 데이터베이스에서 바코드 이름 가져오기 
-		///////////////////////////////////////////////////////
+		String bNum = BarcodeCreator.barcodeDate;
 		
-		String barcodeNum = "101610111001"+".jpg"; //
+		String barcodeNum = bNum+".jpg";
 		return barcodeNum;
 	}
 	
@@ -43,7 +42,7 @@ public class PurchaseChkController implements Initializable{
 		prevBtn.setOnAction(event->handleBtnACtion(event));
 	
 		//이미지 로딩		
-				File file = new File("d:/barcode/"+barcodeCheck()); 
+				File file = new File("c:/barcode/"+barcodeCheck()); 
 				/////////////////////////////바코드 파일 경로
 				Image image = new Image(file.toURI().toString());
 				//이미지뷰 영역에  바코드
