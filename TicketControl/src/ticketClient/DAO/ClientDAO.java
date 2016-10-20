@@ -122,21 +122,22 @@ public class ClientDAO {
 		return result;
 	}
 	
-	public int ClientSelect(){
+	public int ClientSelect(String ip){
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int clientPoint=0;
 		
 		try {
-			String sql = "SELECT POINT "+"FROM CLIENT_POINT";
+			String sql = "SELECT POINT "+"FROM CLIENT_POINT WHERE IP='?'";
 			
 			pstmt = con.prepareStatement(sql);
+			//pstmt.setString(1, ip);
+			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
 				ClientVO rsClient = new ClientVO();
-				rsClient.setPoint(rs.getInt(1));
-				clientPoint = rsClient.getPoint();
+				rsClient.setIp(rs.getString(1));
 			}
 			
 		} catch (Exception e) {
