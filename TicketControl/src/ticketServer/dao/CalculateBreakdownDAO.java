@@ -5,9 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CalculateBreakdownDAO extends TicketDAO<CalculateBreakdown>{
+public class CalculateBreakdownDAO extends TicketDAO{
 
-	@Override
 	public ArrayList<CalculateBreakdown> getAll() {
 		connectDB();
 		
@@ -38,7 +37,6 @@ public class CalculateBreakdownDAO extends TicketDAO<CalculateBreakdown>{
 		return (ArrayList<CalculateBreakdown>) cbList;
 	}
 
-	@Override
 	public CalculateBreakdown getData(int index) {
 		connectDB();
 		
@@ -65,7 +63,6 @@ public class CalculateBreakdownDAO extends TicketDAO<CalculateBreakdown>{
 		return cb;
 	}
 
-	@Override
 	public boolean insertData(CalculateBreakdown t) {
 		connectDB();
 		
@@ -86,7 +83,6 @@ public class CalculateBreakdownDAO extends TicketDAO<CalculateBreakdown>{
 		return true;
 	}
 
-	@Override
 	public boolean delData(int index) {
 		connectDB();
 		
@@ -104,7 +100,6 @@ public class CalculateBreakdownDAO extends TicketDAO<CalculateBreakdown>{
 		return true;
 	}
 
-	@Override
 	public boolean delAll() {
 		connectDB();
 
@@ -121,7 +116,6 @@ public class CalculateBreakdownDAO extends TicketDAO<CalculateBreakdown>{
 		return true;
 	}
 
-	@Override
 	public boolean updateData(CalculateBreakdown t) {
 		connectDB();
 		

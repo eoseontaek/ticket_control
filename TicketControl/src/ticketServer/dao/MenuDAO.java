@@ -5,9 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MenuDAO extends TicketDAO<Menu>{
+public class MenuDAO extends TicketDAO{
 
-	@Override
 	public ArrayList<Menu> getAll() {
 		connectDB();
 		
@@ -42,7 +41,6 @@ public class MenuDAO extends TicketDAO<Menu>{
 		return (ArrayList<Menu>) menuList;
 	}
 
-	@Override
 	public Menu getData(int index) {
 		connectDB();
 		
@@ -74,7 +72,6 @@ public class MenuDAO extends TicketDAO<Menu>{
 		return menu;
 	}
 
-	@Override
 	public boolean insertData(Menu t) {
 		connectDB();
 		
@@ -102,7 +99,6 @@ public class MenuDAO extends TicketDAO<Menu>{
 		return true;
 	}
 
-	@Override
 	public boolean delData(int index) {
 		connectDB();
 		
@@ -121,7 +117,6 @@ public class MenuDAO extends TicketDAO<Menu>{
 		return true; 
 	}
 
-	@Override
 	public boolean delAll() {
 		connectDB();
 
@@ -139,7 +134,6 @@ public class MenuDAO extends TicketDAO<Menu>{
 		return true;
 	}
 
-	@Override
 	public boolean updateData(Menu t) {
 		connectDB();
 		

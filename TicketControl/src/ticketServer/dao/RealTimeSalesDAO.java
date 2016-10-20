@@ -5,9 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class RealTimeSalesDAO extends TicketDAO<RealTimeSales>{
+public class RealTimeSalesDAO extends TicketDAO{
 
-	@Override
 	public ArrayList<RealTimeSales> getAll() {
 		connectDB();
 		
@@ -40,7 +39,6 @@ public class RealTimeSalesDAO extends TicketDAO<RealTimeSales>{
 		return (ArrayList<RealTimeSales>) rtsList;
 	}
 
-	@Override
 	public RealTimeSales getData(int index) {
 		connectDB();
 
@@ -68,7 +66,6 @@ public class RealTimeSalesDAO extends TicketDAO<RealTimeSales>{
 		return rts;
 	}
 
-	@Override
 	public boolean insertData(RealTimeSales t) {
 		connectDB();
 		
@@ -89,7 +86,6 @@ public class RealTimeSalesDAO extends TicketDAO<RealTimeSales>{
 		return true;
 	}
 
-	@Override
 	public boolean delData(int index) {
 		connectDB();
 		
@@ -109,7 +105,6 @@ public class RealTimeSalesDAO extends TicketDAO<RealTimeSales>{
 		return true;
 	}
 
-	@Override
 	public boolean delAll() {
 		connectDB();
 
@@ -126,7 +121,6 @@ public class RealTimeSalesDAO extends TicketDAO<RealTimeSales>{
 		return true;
 	}
 
-	@Override
 	public boolean updateData(RealTimeSales t) {
 		connectDB();
 		

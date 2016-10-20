@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class BarcodeDAO extends TicketDAO<Barcode>{
+public class BarcodeDAO extends TicketDAO {
 
 	public boolean insertBarcode(Barcode t) {
 		connectDB();
@@ -101,41 +101,5 @@ public class BarcodeDAO extends TicketDAO<Barcode>{
 			closeDB();
 		}
 		return map;
-	}
-
-	@Override
-	public ArrayList<Barcode> getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Barcode getData(int index) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean insertData(Barcode t) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean delData(int index) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean delAll() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean updateData(Barcode t) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 }

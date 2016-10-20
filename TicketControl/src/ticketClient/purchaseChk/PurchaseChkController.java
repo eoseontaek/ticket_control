@@ -38,7 +38,6 @@ public class PurchaseChkController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		dateTF.setText(PurchaseController.displayDate);
-		
 		prevBtn.setOnAction(event->handleBtnACtion(event));
 	
 		//이미지 로딩		
