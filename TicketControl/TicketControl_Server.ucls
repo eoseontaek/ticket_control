@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.11" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="ticketServer.TicketServer.Client" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/TicketServer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="717" y="373"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="ticketServer.TicketServer" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/TicketServer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="707" y="133"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="ticketServer.TicketSerialize" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/TicketSerialize.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="724" y="534"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="ticketServer.administratorMain.AdminMainController" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/administratorMain/AdminMainController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1012" y="440"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="ticketServer.balanceAccounts.BalanceAccountsController" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/balanceAccounts/BalanceAccountsController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1019" y="147"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="ticketServer.configuration.ConfigurationController" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/configuration/ConfigurationController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1014" y="735"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="ticketServer.dao.Barcode" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/dao/Barcode.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="784" y="721"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="ticketServer.dao.BarcodeDAO" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/dao/BarcodeDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="287" y="985"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="ticketServer.dao.CalculateBreakdown" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/dao/CalculateBreakdown.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="466" y="497"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="ticketServer.dao.CalculateBreakdownDAO" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/dao/CalculateBreakdownDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="727" y="1207"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="ticketServer.dao.LogIn" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/dao/LogIn.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="453" y="145"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="ticketServer.dao.LogInDAO" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/dao/LogInDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="735" y="972"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="ticketServer.dao.Menu" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/dao/Menu.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-35" y="298"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="ticketServer.dao.MenuDAO" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/dao/MenuDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="506" y="1240"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="ticketServer.dao.RealTimeSales" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/dao/RealTimeSales.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="276" y="175"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="ticketServer.dao.RealTimeSalesDAO" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/dao/RealTimeSalesDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="288" y="1226"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="ticketServer.dao.TicketDAO" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/dao/TicketDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="517" y="987"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="ticketServer.logIn.LogInContoller" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/logIn/LogInContoller.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1044" y="979"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="ticketServer.mealMenu.MealMenuController" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/mealMenu/MealMenuController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1015" y="1220"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="ticketServer.packet.BarcodePacket" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/packet/BarcodePacket.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="240" y="580"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="ticketServer.packet.MenuPacket" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/packet/MenuPacket.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="215" y="782"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="ticketServer.packet.PointPacket" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/packet/PointPacket.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="614" y="762"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="ticketServer.packet.TicketPacket" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/packet/TicketPacket.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="444" y="763"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="ticketServer.realTimeSales.RealTimeSalesController" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/realTimeSales/RealTimeSalesController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-43" y="1049"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="ticketServer.salesStatistics.SalesStatisticsController" project="TicketControl" 
+    file="/TicketControl/src/ticketServer/salesStatistics/SalesStatisticsController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-45" y="752"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="26">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="27" name="connections"/>      
+      <multiplicity id="28" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="29">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="23"/>  
+  </generalization>  
+  <generalization id="30">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="23"/>  
+  </generalization>  
+  <generalization id="31">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <nesting id="32">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </nesting>  
+  <generalization id="33">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <dependency id="34">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <dependency id="37">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <generalization id="38">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="23"/>  
+  </generalization>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

@@ -1,7 +1,5 @@
 package ticketClient.DAO;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -47,7 +45,7 @@ public class ClientDAO {
 		int result = 0;
 		
 		try {
-			String sql = "INSERT INTO CLIENT_POINT(IP, POINT)"+"VALUE(?,?)";
+			String sql = "INSERT IGNORE INTO CLIENT_POINT(IP, POINT)"+ "VALUE(?,?)";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, vo.getIp());
@@ -75,10 +73,11 @@ public class ClientDAO {
 		int result=0;
 		
 		try {
-			String sql = "UPDATE CLIENT_POINT SET POINT=?";
+			String sql = "UPDATE CLIENT_POINT SET POINT=? WHERE IP=' ? '";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setInt(1, cvo.getPoint());
+			pstmt.setString(2, cvo.getIp());
 			
 			result = pstmt.executeUpdate(); 
 		} catch (Exception e) {
@@ -122,21 +121,23 @@ public class ClientDAO {
 		return result;
 	}
 	
-	public int ClientSelect(){
+	public int ClientSelect(String ip){
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int clientPoint=0;
 		
 		try {
-			String sql = "SELECT POINT "+"FROM CLIENT_POINT";
+			String sql = "SELECT POINT "+"FROM CLIENT_POINT WHERE IP='?'";
 			
 			pstmt = con.prepareStatement(sql);
+			//pstmt.setString(1, ip);
+			
 			rs = pstmt.executeQuery();
 			
-			rs.next();
-			ClientVO rsClient = new ClientVO();
-			rsClient.setPoint(rs.getInt(1));
-			clientPoint = rsClient.getPoint();
+			while(rs.next()){
+				ClientVO rsClient = new ClientVO();
+				rsClient.setIp(rs.getString(1));
+			}
 			
 		} catch (Exception e) {
 			System.out.println("DAO Select Error");

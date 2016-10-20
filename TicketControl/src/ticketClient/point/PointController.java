@@ -1,7 +1,9 @@
 package ticketClient.point;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -39,10 +41,20 @@ public class PointController implements Initializable{
 		chargeBtn.setOnAction(event->handlechargeBtnAction(event));			//포인트 충전하기(활성화)
 		chargePoint.setOnAction(event->handleChkAction(event));				//충전하기
 		
-		ClientDAO dao = new ClientDAO();
-		dao.DBConnection();
+		InetAddress local = null;
 		
-		int point = dao.ClientSelect();
+		try {
+			local = InetAddress.getLocalHost();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		ClientDAO dao = new ClientDAO();
+		
+		dao.DBConnection();
+			
+		int point = dao.ClientSelect(local.getHostAddress());
 		String ClientPoint = String.valueOf(point);
 		
 		currentPoint.setText(ClientPoint);

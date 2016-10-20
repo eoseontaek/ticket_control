@@ -24,13 +24,13 @@ public class MainController implements Initializable{
 	@FXML private Button btn2;		// 구매 확인
 	@FXML private Button btn3;		// 메뉴 정보
 	@FXML private Button pointBtn;	// 포인트 충전
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		btn1.setOnAction(event->handleBtn1Action(event));
 		btn2.setOnAction(event->handleBtn2Action(event));
 		btn3.setOnAction(event->handleBtn3Action(event));
-		
+
 		pointBtn.setOnAction(event->handlePointAction(event));
 	}
 
@@ -44,7 +44,7 @@ public class MainController implements Initializable{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void handleBtn2Action(ActionEvent event) {
 		try {
 			Parent chk = FXMLLoader.load(getClass().getResource("..\\purchaseChk\\PurchaseChk.fxml"));
@@ -55,7 +55,7 @@ public class MainController implements Initializable{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void handleBtn3Action(ActionEvent event) {
 		
 		System.out.println("메뉴정보");
@@ -72,7 +72,7 @@ public class MainController implements Initializable{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void handlePointAction(ActionEvent event) {
 
 		ClientDAO dao = new ClientDAO();
@@ -86,20 +86,18 @@ public class MainController implements Initializable{
 			e1.printStackTrace();
 		}
 
-		ClientVO vo = new ClientVO(local.getHostAddress(),0);
+		ClientVO cvo = new ClientVO(local.getHostAddress(),0);
 
-		if(vo.getIp().equals(local.getHostAddress())){
-			try {
-				Parent point = FXMLLoader.load(getClass().getResource("..\\point\\Point.fxml"));
-				Scene scene = new Scene(point);
-				Stage primaryStage = (Stage) pointBtn.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}else{
-			dao.ClientInsert(vo);
+		dao.ClientInsert(cvo);
+		
+		try {
+			Parent point = FXMLLoader.load(getClass().getResource("..\\point\\Point.fxml"));
+			Scene scene = new Scene(point);
+			Stage primaryStage = (Stage) pointBtn.getScene().getWindow();
+			primaryStage.setScene(scene);
+			System.out.println(cvo.getIp());
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
-
 }

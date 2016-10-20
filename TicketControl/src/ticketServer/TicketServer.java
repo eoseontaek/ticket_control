@@ -1,6 +1,8 @@
 package ticketServer;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousChannelGroup;
@@ -37,6 +39,7 @@ public class TicketServer extends Application{
 //	private static final String SERVER_IP = "70.12.109.100";
 	private static final int SERVER_PORT = 6001;
 	private static final int BUFFER_SIZE = 1024;
+	
 	
 	
 	class Client{
@@ -234,6 +237,15 @@ public class TicketServer extends Application{
 		stage.setOnCloseRequest(event->stopServer());
 		stage.setScene(new Scene(logInRoot));
 		stage.show();
+		
+		//////////////////////////////////////////////////////////////////////
+		
+		Thread thread = new BarcodeScan();
+		thread.setDaemon(true);
+		thread.start();
+		
+		///////////////////////////////////////////////////////////////////////
+		
 	}
 	
 	public static void main(String[] args) {
