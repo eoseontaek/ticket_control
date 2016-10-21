@@ -54,7 +54,7 @@ public class PointController implements Initializable{
 		
 		dao.DBConnection();
 			
-		int point = dao.ClientSelect(local.getHostAddress());
+		String point = dao.ClientSelect(local.getHostAddress());
 		String ClientPoint = String.valueOf(point);
 		
 		currentPoint.setText(ClientPoint);

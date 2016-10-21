@@ -56,7 +56,7 @@ public class AdminMainController implements Initializable {
 				isLogin=true;
 				parent = FXMLLoader.load(getClass().getResource("..\\..\\ticketClient\\point\\ChkDialog.fxml"));
 				Label txtTitle = (Label) parent.lookup("#txtTitle");
-				txtTitle.setText("안녕하세요 김재민입니다. 저는 로그인 담당입니다.");
+				txtTitle.setText("안녕하세요 김재민입니다. \r\n 저는 로그인 담당입니다.");
 				Button btnOk = (Button) parent.lookup("#btnOk");
 				btnOk.setOnAction(event1->dialog.close());	
 				Scene scene = new Scene(parent);

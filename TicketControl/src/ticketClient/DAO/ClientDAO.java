@@ -73,11 +73,11 @@ public class ClientDAO {
 		int result=0;
 		
 		try {
-			String sql = "UPDATE CLIENT_POINT SET POINT=? WHERE IP=' ? '";
+			String sql = "UPDATE CLIENT_POINT SET POINT=? WHERE IP='"+cvo.getIp()+"'";
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setInt(1, cvo.getPoint());
-			pstmt.setString(2, cvo.getIp());
+			//pstmt.setString(2, cvo.getIp());
 			
 			result = pstmt.executeUpdate(); 
 		} catch (Exception e) {
@@ -121,13 +121,13 @@ public class ClientDAO {
 		return result;
 	}
 	
-	public int ClientSelect(String ip){
+	public String ClientSelect(String ip){
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		int clientPoint=0;
+		String clientPoint = null;
 		
 		try {
-			String sql = "SELECT POINT "+"FROM CLIENT_POINT WHERE IP='?'";
+			String sql = "SELECT POINT FROM CLIENT_POINT WHERE IP='"+ip+"'";
 			
 			pstmt = con.prepareStatement(sql);
 			//pstmt.setString(1, ip);
@@ -137,6 +137,7 @@ public class ClientDAO {
 			while(rs.next()){
 				ClientVO rsClient = new ClientVO();
 				rsClient.setIp(rs.getString(1));
+				clientPoint = rsClient.getIp();
 			}
 			
 		} catch (Exception e) {
