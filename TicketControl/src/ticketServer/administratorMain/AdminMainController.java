@@ -26,8 +26,11 @@ public class AdminMainController implements Initializable {
 	@FXML private Button btnMealMenu;
 	@FXML private Button btnConfiguration;
 
+	static boolean isLogin = false;
+	
 	Stage dialog;
 	private Stage primaryStage;
+	Parent parent;
 	
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
@@ -47,23 +50,25 @@ public class AdminMainController implements Initializable {
 		btnMealMenu.setOnAction(event->handleBtnMealMenuAction(event));
 		btnConfiguration.setOnAction(event->handleBtnConfigurationAction(event));
 		
-	
-		Parent parent;
-		try {
-			parent = FXMLLoader.load(getClass().getResource("..\\..\\ticketClient\\point\\ChkDialog.fxml"));
-			Label txtTitle = (Label) parent.lookup("#txtTitle");
-			txtTitle.setText("¾È³çÇÏ¼¼¿ä ±èÀç¹ÎÀÔ´Ï´Ù.");
-			Button btnOk = (Button) parent.lookup("#btnOk");
-			btnOk.setOnAction(event1->dialog.close());	
-			Scene scene = new Scene(parent);
-			
-			dialog.setScene(scene);
-			dialog.setAlwaysOnTop(true);
-			dialog.setResizable(false);
-			dialog.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+		if(isLogin==false){
+			try {
+				isLogin=true;
+				parent = FXMLLoader.load(getClass().getResource("..\\..\\ticketClient\\point\\ChkDialog.fxml"));
+				Label txtTitle = (Label) parent.lookup("#txtTitle");
+				txtTitle.setText("¾È³çÇÏ¼¼¿ä ±èÀç¹ÎÀÔ´Ï´Ù. Àú´Â ·Î±×ÀÎ ´ã´çÀÔ´Ï´Ù.");
+				Button btnOk = (Button) parent.lookup("#btnOk");
+				btnOk.setOnAction(event1->dialog.close());	
+				Scene scene = new Scene(parent);
+
+				dialog.setScene(scene);
+				dialog.setAlwaysOnTop(true);
+				dialog.setResizable(false);
+				dialog.show();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
