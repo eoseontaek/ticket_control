@@ -12,7 +12,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -23,55 +26,55 @@ public class AdminMainController implements Initializable {
 	@FXML private Button btnMealMenu;
 	@FXML private Button btnConfiguration;
 
-
 	Stage dialog;
-
-	private Stage primaryStage;	
+	private Stage primaryStage;
+	
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		dialog = new Stage(StageStyle.UTILITY);
+		dialog.initModality(Modality.WINDOW_MODAL);
+		dialog.initOwner(primaryStage);
+		dialog.setTitle("È®ÀÎ");
 
 		btnRealTimeSales.setOnAction((event)->handleBtnRealTimeSalesAction(event));
 		btnSalesStatistics.setOnAction(event->handlebtnSalesStatisticsAction(event));
 		btnBalanceAccounts.setOnAction(event->handleBtnBalanceAccountsAction(event));
 		btnMealMenu.setOnAction(event->handleBtnMealMenuAction(event));
 		btnConfiguration.setOnAction(event->handleBtnConfigurationAction(event));
-
-
-
-		//////////////////////////////////////
 		
-		
+	
+		Parent parent;
 		try {
-			
-			dialog = new Stage(StageStyle.UTILITY);
-			dialog.initModality(Modality.WINDOW_MODAL);
-			dialog.initOwner(primaryStage);
-			dialog.setTitle("È®ÀÎ");
-			
-			Parent parent = FXMLLoader.load(getClass().getResource("..\\..\\ticketClient\\point\\ChkDialog.fxml"));
+			parent = FXMLLoader.load(getClass().getResource("..\\..\\ticketClient\\point\\ChkDialog.fxml"));
 			Label txtTitle = (Label) parent.lookup("#txtTitle");
-			txtTitle.setText("³ª????? ±èÀç¹Î");
+			txtTitle.setText("¾È³çÇÏ¼¼¿ä ±èÀç¹ÎÀÔ´Ï´Ù.");
 			Button btnOk = (Button) parent.lookup("#btnOk");
 			btnOk.setOnAction(event1->dialog.close());	
 			Scene scene = new Scene(parent);
-
+			
 			dialog.setScene(scene);
+			dialog.setAlwaysOnTop(true);
 			dialog.setResizable(false);
 			dialog.show();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+
 	public void handleBtnRealTimeSalesAction(ActionEvent event){
+		
 		try {
 			Parent realTimeSalesRoot = FXMLLoader.load(getClass().getResource("..\\realTimeSales\\RealTimeSales.fxml"));
 			Scene scene = new Scene(realTimeSalesRoot);
 			Stage primaryStage = (Stage) btnRealTimeSales.getScene().getWindow();
+			
 			primaryStage.setScene(scene);
 
 		} catch (IOException e) {

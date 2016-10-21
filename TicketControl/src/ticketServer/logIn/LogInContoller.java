@@ -14,7 +14,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -55,9 +58,10 @@ public class LogInContoller implements Initializable{
 						.load(getClass().getResource("..\\administratorMain\\AdministratorMain.fxml"));
 				Scene scene = new Scene(administrator);
 				Stage primaryStage = (Stage) btnLogIn.getScene().getWindow();
+				
 				primaryStage.setScene(scene);
+				
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else { // id, pw 일치하지 않으면...
