@@ -22,8 +22,8 @@ public class TicketClient extends Application{
 	private AsynchronousChannelGroup channelGroup;
 	private AsynchronousSocketChannel socketChannel;
 	
-//	private static final String SERVER_IP = "70.12.109.100";
-	private static final String SERVER_IP = "localhost";
+	private static final String SERVER_IP = "70.12.109.100";
+//	private static final String SERVER_IP = "localhost";
 	private static final int SERVER_PORT = 6001;
 	private static final int BUFFER_SIZE = 1024;
 	
