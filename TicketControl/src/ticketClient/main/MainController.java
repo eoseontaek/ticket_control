@@ -58,9 +58,9 @@ public class MainController implements Initializable{
 
 	public void handleBtn3Action(ActionEvent event) {
 		
-		System.out.println("메뉴정보");
-		
-		TicketClient.instance.send(new MenuPacket());
+//		System.out.println("메뉴정보");
+//		
+//		TicketClient.instance.send(new MenuPacket());
 		
 		
 		try {
