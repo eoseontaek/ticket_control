@@ -52,7 +52,7 @@ public class PaymentController implements Initializable {
 				
 		String dateBarcode = PurchaseController.selectedDate.substring(2, 8);
 		String menu = MenuResultController.menuSelect;
-		BarcodeCreator bc = new BarcodeCreator(menu, dateBarcode, random);
+//		BarcodeCreator bc = new BarcodeCreator(menu, dateBarcode, random);
 
 		// 서버로 구매 요청
 		TicketClient.instance.send(new BarcodePacket(menu + dateBarcode + random));
