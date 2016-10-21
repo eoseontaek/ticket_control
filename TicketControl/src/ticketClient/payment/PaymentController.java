@@ -57,9 +57,9 @@ public class PaymentController implements Initializable {
 		// 서버로 구매 요청
 		TicketClient.instance.send(new BarcodePacket(menu + dateBarcode + random));
 		
-		BarcodeDAO dao = new BarcodeDAO();
-		Barcode barcode = new Barcode(BarcodeCreator.barcodeDate, 0);
-		dao.insertBarcode(barcode);
+//		BarcodeDAO dao = new BarcodeDAO();
+//		Barcode barcode = new Barcode(BarcodeCreator.barcodeDate, 0);
+//		dao.insertBarcode(barcode);
 		
 		try {
 			Parent btna = FXMLLoader.load(getClass().getResource("..\\purchaseChk\\PurchaseChk.fxml"));

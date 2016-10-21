@@ -58,10 +58,7 @@ public class MainController implements Initializable{
 
 	public void handleBtn3Action(ActionEvent event) {
 		
-		System.out.println("메뉴정보");
-		
 		TicketClient.instance.send(new MenuPacket());
-		
 		
 		try {
 			Parent menuInfo = FXMLLoader.load(getClass().getResource("..\\menuInfo\\MenuInfo.fxml"));

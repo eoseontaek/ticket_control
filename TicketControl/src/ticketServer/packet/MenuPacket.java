@@ -27,18 +27,18 @@ public class MenuPacket extends TicketPacket{
 
 	@Override
 	public void result() {
-			System.out.println("수신완료");
-		if(!menuList.isEmpty()){
-			Iterator<Menu []> iterator = menuList.iterator();
-			while(iterator.hasNext()){
-				Menu [] array = iterator.next();
-				for (Menu menu : array) {
-
-					System.out.println(menu.getNum() + " " + menu.getInformation_date() + " " + menu.getMenu_type()
-							+ " " + menu.getRice() + " " + menu.getSidedish1() + " " + menu.getSidedish2() + " "
-							+ menu.getSidedish3() + " " + menu.getImage() + " ");
-				}
-			}
-		}
+		System.out.println("메뉴패킷 수신완료");
+//		if (!menuList.isEmpty()) {
+//			Iterator<Menu[]> iterator = menuList.iterator();
+//			while (iterator.hasNext()) {
+//				Menu[] array = iterator.next();
+//				for (Menu menu : array) {
+//
+//					System.out.println(menu.getNum() + " " + menu.getInformation_date() + " " + menu.getMenu_type()
+//							+ " " + menu.getRice() + " " + menu.getSidedish1() + " " + menu.getSidedish2() + " "
+//							+ menu.getSidedish3() + " " + menu.getImage() + " ");
+//				}
+//			}
+//		}
 	}
 }

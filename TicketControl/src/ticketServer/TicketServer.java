@@ -35,8 +35,8 @@ public class TicketServer extends Application{
 	private AsynchronousServerSocketChannel serverSocketChannel;
 	private List<Client> connections = new Vector<>();
 	
-	private static final String SERVER_IP = "localhost";
-//	private static final String SERVER_IP = "70.12.109.100";
+//	private static final String SERVER_IP = "localhost";
+	private static final String SERVER_IP = "70.12.109.100";
 	private static final int SERVER_PORT = 6001;
 	private static final int BUFFER_SIZE = 1024;
 	
@@ -86,28 +86,28 @@ public class TicketServer extends Application{
 				}
 			}
 			else if (packet instanceof MenuPacket){
-				MenuPacket p = (MenuPacket)packet;
-				MenuDAO dao = new MenuDAO();
-				
-//				List<Menu []> list = dao.getWeekMenu(dao.searchMonday(dao.today()));
-				ArrayList<Menu []> list = new ArrayList<>();
-				Menu [] menues = new Menu [2];
-				
-				for (int i = 0; i< menues.length;i++) {
-					menues[i] = new Menu();
-					menues[i].setNum(1);
-					menues[i].setInformation_date("2016.10.19");
-					menues[i].setMenu_type(1);
-					menues[i].setRice("rice");
-					menues[i].setSoup("soup");
-					menues[i].setSidedish1("sidedish1");
-					menues[i].setSidedish2("sidedish2");
-					menues[i].setSidedish3("sidedish3");
-					menues[i].setImage("C:\\menu\\9920161019.img");
-				}
-				list.add(menues);
-				
-				p.setMenuList(list);
+//				MenuPacket p = (MenuPacket)packet;
+//				MenuDAO dao = new MenuDAO();
+//				
+////				List<Menu []> list = dao.getWeekMenu(dao.searchMonday(dao.today()));
+//				ArrayList<Menu []> list = new ArrayList<>();
+//				Menu [] menues = new Menu [2];
+//				
+//				for (int i = 0; i< menues.length;i++) {
+//					menues[i] = new Menu();
+//					menues[i].setNum(1);
+//					menues[i].setInformation_date("2016.10.19");
+//					menues[i].setMenu_type(1);
+//					menues[i].setRice("rice");
+//					menues[i].setSoup("soup");
+//					menues[i].setSidedish1("sidedish1");
+//					menues[i].setSidedish2("sidedish2");
+//					menues[i].setSidedish3("sidedish3");
+//					menues[i].setImage("C:\\menu\\9920161019.img");
+//				}
+//				list.add(menues);
+//				
+//				p.setMenuList(list);
 			}
 			else {
 				System.out.println("잘못된 패킷입니다.");

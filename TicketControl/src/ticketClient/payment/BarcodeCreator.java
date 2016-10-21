@@ -39,6 +39,12 @@ public class BarcodeCreator {
 			  String mimeType = MimeTypes.expandFormat("jpg");
 			  int imageType = BufferedImage.TYPE_BYTE_BINARY;
 			  BitmapCanvasProvider canvas = new BitmapCanvasProvider(out, mimeType, 203, imageType, false, 0);
+
+			  // 바코드 길이가 일치하지 않으면 다시 생성하도록 구현해야 함.
+			  switch (barcodeDate.length()){
+			  case 10 : barcodeDate += "00";
+			  case 11 : barcodeDate += "0";
+			  }
 			  
 			  bean.generateBarcode(canvas, barcodeDate);
 			  
